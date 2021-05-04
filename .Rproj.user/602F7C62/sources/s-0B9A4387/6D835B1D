@@ -1,26 +1,26 @@
 {
-    "id": "87D29D60",
-    "path": "G:/Projects/My Website/about.Rmd",
-    "project_path": "about.Rmd",
-    "type": "r_markdown",
+    "id": "6D835B1D",
+    "path": "G:/Projects/My Website/style.css",
+    "project_path": "style.css",
+    "type": "css",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1620100881665.0,
+    "created": 1620103415052.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "10,0",
-        "scrollLine": "0"
+        "cursorPosition": "19,29",
+        "scrollLine": "8"
     },
     "folds": "",
-    "lastKnownWriteTime": 1620100865,
+    "lastKnownWriteTime": 1620103868,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620100865,
+    "last_content_update": 1620103868269,
     "read_only": false,
     "read_only_alternatives": []
 }

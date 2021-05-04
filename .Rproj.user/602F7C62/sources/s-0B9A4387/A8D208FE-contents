@@ -1,7 +1,14 @@
 ---
 title: "My Website"
-description: |
-  Welcome to the website. I hope you enjoy it!
+image: "circle-cropped.png"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/jay-patel-9259521b5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BS4HPGApUT8uxK09NaDBoGQ%3D%3D"
+  - label: Github
+    url: "https://github.com/JayPatel6397"
+output:
+  postcards::jolla
+  
 site: distill::distill_website
 ---
 
