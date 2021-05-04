@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/2021-05-04-ames-housing-price-analysis/",
+    "title": "Ames Housing price analysis",
+    "description": "This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio.",
+    "author": [
+      {
+        "name": "Jaykumar A Patel",
+        "url": {}
+      }
+    ],
+    "date": "2021-05-04",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-05-04-ames-housing-price-analysis/housing.png",
+    "last_modified": "2021-05-04T20:15:35+05:30",
+    "input_file": "ames-housing-price-analysis.knit.md"
+  }
+]

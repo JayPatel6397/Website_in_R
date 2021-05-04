@@ -1,0 +1,187 @@
+---
+title: "Ames Housing Data Analysis"
+author: "Jaykumar Patel"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: cerulean
+    highlight: espresso
+    toc: TRUE
+    toc_float: TRUE
+---
+
+```{r, include=FALSE}
+library(kableExtra)
+```
+
+## Load Libraries
+
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center")
+
+```
+
+```{r packages, warning = FALSE, message = FALSE}
+
+library(scales)
+library(lares)
+library(tidyverse)
+library(modelsummary)
+library(ggthemes)
+library(gridExtra)
+library(broom)
+
+```
+
+```{r, include=FALSE}
+
+themes <-  function()
+  {
+  theme(
+        plot.title = element_text(color = "#FF9671", size = 12, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5, color = "#845EC2",  face = "italic" ),
+        axis.title.x = element_text(color = "#FF9671", face = "bold",margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(color = "#FF9671", face = "bold", margin = margin(t = 0, r = 10, b = 0, l = 0)),
+        text = element_text(colour = "#BCF7E4"),
+        plot.background = element_rect(fill = "#EDFFF9", color = NaN, margin(t = 10, r = 10, b = 10, l = 10)),
+        panel.background = element_rect(fill = "#DDFFF4"),
+        panel.grid.major = element_line(color = "#BCF7E4"),
+        panel.grid.minor = element_line(color = "#BCF7E4"),
+        legend.background = element_rect(fill="#B0E0E0",size=0.5, linetype="solid"),
+        legend.title = element_text(colour="black", size=10, face="bold"),
+        legend.text = element_text(color = "#545479"),
+        legend.position = "none",
+        legend.direction = "horizontal" 
+        )
+}
+
+colors <- c('#845EC2', '#D65DB1', '#FF6F91', '#FF9671', "#FFC75F", "#A8F78B","#9367C4", "#4B4453")
+
+```
+
+## Load Ames Housing Data
+
+```{r}
+
+data(ames, package = "modeldata")
+
+```
+
+## Select Numeric Variables
+
+```{r}
+num <- ames %>%
+  select(where(is.numeric))
+
+head(num)
+```
+
+# EDA
+
+## Exploring the univariate distribution of the response variable Sale price.
+
+```{r}
+ames %>% 
+  ggplot(aes(Sale_Price))+    
+  geom_histogram(aes(y = stat(density)), color = "#13B4FA",fill = "#FF6F91") +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+    geom_vline(xintercept = mean(ames$Sale_Price), lwd = 0.8, linetype = "dashed", color = "#845EC2" )+
+     geom_label(label= paste("Mean", round(mean(ames$Sale_Price), 2), sep =": "), x=250000, y=0.000007, label.padding = unit(0.55, "lines"), label.size = 0.25, fill = "#845EC2", color = "white"
+  )+
+    geom_vline(xintercept = median(ames$Sale_Price), lwd = 0.8, linetype="twodash", color = "#4B4453")+
+     geom_label(label= paste("Median", round(median(ames$Sale_Price), 2), sep =": "), x=100000, y=0.000006, label.padding = unit(0.55, "lines"), label.size = 0.25, fill = "#4B4453", color = "white"
+  )+
+    labs(title = "Distribution of Sales Price",
+         x = "Total Price",
+         y = "density") +
+  scale_x_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1))+
+    theme_replace()+
+    themes()
+```
+
+-   As we look at the mean and median, `median < mean` so we can say that our variable is right skewed. But it is not much skewed so we can consider it as normally distributed because in real world we never get perfectly distributed data.\
+-   The reason behind this skewness can be outliers present in the response variable..
+
+## Find outlier(s) in your original response variable
+
+```{r}
+ames %>% 
+  ggplot(aes(y= Sale_Price))+
+  geom_boxplot(outlier.color = "#13B4FA" )+
+  labs(title = "Outliers in Sale Price",
+       y = "Sale Price") +
+  theme_replace()+
+  scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1))+
+  themes()
+
+```
+
+-   We have found the we have some outliers present in the data which can be reason for the skewness.
+
+# Bivariate analysis     
+
+- To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.
+
+## Heat Map to find high corrlated features.
+
+```{r}
+
+corr_var(num, # name of dataset
+  Sale_Price, # name of variable to focus on
+  top = 5 # display top 5 correlations
+) 
+  
+```
+
+
+## Relation between Sale Price and Total Basement size
+
+```{r}
+
+data1 <- ames %>% 
+          filter((!Total_Bsmt_SF>4000)& (Total_Bsmt_SF > 0)) %>% 
+          select(Total_Bsmt_SF,Sale_Price)
+
+bsmt1 <- data1 %>% 
+  ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation between Sale Price and Total Basement size(with outliers)",
+         x = "Total Basement size",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+bsmt2 <- ames %>% 
+  ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation between Sale Price and Total Basement size(without outliers)",
+         x = "Total Basement size",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+grid.arrange(bsmt2, bsmt1, ncol=2)
+
+```
+
+-   Here, we can say that we have some positive relation between sale price and total basement size.
+
+    -   But we can see there are some outliers in total basement size, which leads to the less weak relation.
+
+-   The Correlation coefficient before removing outliers is `r cor(data1['Total_Bsmt_SF'], data1['Sale_Price'])`
+
+-   The Correlation coefficient after removing outliers is `r cor(ames['Total_Bsmt_SF'], ames['Sale_Price'])`
+
+
+
+
+
+
+
+
+
+
+

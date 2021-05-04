@@ -1,0 +1,25 @@
+---
+title: "Ames Housing price analysis"
+description: |
+  This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio.
+author:
+  - name: Jaykumar A Patel
+date: 2021-05-04
+preview: housing.png
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
