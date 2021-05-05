@@ -132,7 +132,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ames-housing-price-analysis_files/anchor-4.2.2/anchor.min.js","ames-housing-price-analysis_files/bowser-1.9.3/bowser.min.js","ames-housing-price-analysis_files/distill-2.2.21/template.v2.js","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-7-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-8-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-9-1.png","ames-housing-price-analysis_files/header-attrs-2.7.13/header-attrs.js","ames-housing-price-analysis_files/jquery-1.11.3/jquery.min.js","ames-housing-price-analysis_files/popper-2.6.0/popper.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-bundle.umd.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-light-border.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.umd.min.js","ames-housing-price-analysis_files/webcomponents-2.0.0/webcomponents.js","housing.png"]}
+  {"type":"character","attributes":{},"value":["ames-housing-price-analysis_files/anchor-4.2.2/anchor.min.js","ames-housing-price-analysis_files/bowser-1.9.3/bowser.min.js","ames-housing-price-analysis_files/distill-2.2.21/template.v2.js","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-10-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-11-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-7-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-8-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-9-1.png","ames-housing-price-analysis_files/header-attrs-2.7.13/header-attrs.js","ames-housing-price-analysis_files/jquery-1.11.3/jquery.min.js","ames-housing-price-analysis_files/popper-2.6.0/popper.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-bundle.umd.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-light-border.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.umd.min.js","ames-housing-price-analysis_files/webcomponents-2.0.0/webcomponents.js","housing.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -1976,7 +1976,7 @@ d-article li {
 }
 
 d-article p {
-    
+    text-align: justify;
 }
 
 body {
@@ -2213,8 +2213,11 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ul></li>
 <li><a href="#bivariate-analysis">Bivariate analysis</a>
 <ul>
-<li><a href="#heat-map-to-find-high-corrlated-features.">Heat Map to find high corrlated features.</a></li>
+<li><a href="#heat-map-to-find-highly-correlated-features.">Heat Map to find highly correlated features.</a></li>
+<li><a href="#relation-between-sale-price-and-above-ground-living-area-size">Relation between Sale Price and Above ground living area size</a></li>
+<li><a href="#relation-between-sale-price-and-size-of-garage">Relation between Sale Price and Size of garage</a></li>
 <li><a href="#relation-between-sale-price-and-total-basement-size">Relation between Sale Price and Total Basement size</a></li>
+<li><a href="#conclusion-of-eda">Conclusion of EDA</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2249,21 +2252,56 @@ d-appendix d-footnote-list a.footnote-backlink {
 <ul>
 <li>To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.</li>
 </ul>
-<h2 id="heat-map-to-find-high-corrlated-features.">Heat Map to find high corrlated features.</h2>
+<h2 id="heat-map-to-find-highly-correlated-features.">Heat Map to find highly correlated features.</h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-8-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<h2 id="relation-between-sale-price-and-total-basement-size">Relation between Sale Price and Total Basement size</h2>
+<p>We can see top 3 numerical feature that are directly correlated to the response variable.</p>
+<ol type="1">
+<li><strong>Gr_Liv_Area</strong> Above Ground Living Area in sqft</li>
+<li><strong>Garage_Area</strong> Garage Area in sqft</li>
+<li><strong>Total_Bsmt_SF</strong> Total basement Size in sqft</li>
+</ol>
+<p>Now, We look at each feature one by one and see if we can improve the relation?</p>
+<h2 id="relation-between-sale-price-and-above-ground-living-area-size">Relation between Sale Price and Above ground living area size</h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li><p>Here, we can say that we have some positive relation between sale price and Above Ground Living Area.</p>
+<ul>
+<li>But we can see there are some outliers in Above Ground Living Area, which leads to the less weak relation.</li>
+</ul></li>
+<li><p>The Correlation coefficient before removing outliers is <strong>0.7067799</strong></p></li>
+<li><p>The Correlation coefficient after removing outliers is <strong>0.7084774</strong></p></li>
+</ul>
+<h2 id="relation-between-sale-price-and-size-of-garage">Relation between Sale Price and Size of garage</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li><p>Here, we can say that we have some positive relation between sale price and Size of garage.</p>
+<ul>
+<li>But we can see there are some outliers in total basement size, which leads to the less weak relation.</li>
+</ul></li>
+<li><p>The Correlation coefficient before removing outliers is <strong>0.6401383</strong></p></li>
+<li><p>The Correlation coefficient after removing outliers is <strong>0.6422716</strong></p></li>
+</ul>
+<h2 id="relation-between-sale-price-and-total-basement-size">Relation between Sale Price and Total Basement size</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <ul>
 <li><p>Here, we can say that we have some positive relation between sale price and total basement size.</p>
 <ul>
 <li>But we can see there are some outliers in total basement size, which leads to the less weak relation.</li>
 </ul></li>
-<li><p>The Correlation coefficient before removing outliers is 0.6629602</p></li>
-<li><p>The Correlation coefficient after removing outliers is 0.6325288</p></li>
+<li><p>The Correlation coefficient before removing outliers is <strong>0.6325288</strong></p></li>
+<li><p>The Correlation coefficient after removing outliers is <strong>0.6632371</strong></p></li>
+</ul>
+<h2 id="conclusion-of-eda">Conclusion of EDA</h2>
+<ul>
+<li>As we have seen so far that our three features have some outliers and by removing them we can get more strong relation which will help to improve performance of the model.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

@@ -23,7 +23,6 @@ knitr::opts_chunk$set(echo = FALSE)
 library(kableExtra)
 ```
 
-
 ```{r, include=FALSE}
 
 knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center")
@@ -64,19 +63,18 @@ colors <- c('#845EC2', '#D65DB1', '#FF6F91', '#651a34', "#FFC75F", "#A8F78B","#9
 
 ```
 
-
 ```{r}
 
 data(ames, package = "modeldata")
 
-```
+ames$Garage_Cars <- factor(ames$Garage_Cars)
 
+```
 
 ```{r}
 num <- ames %>%
   select(where(is.numeric))
 ```
-
 
 ## Exploring the univariate distribution of the response variable Sale price.
 
@@ -118,34 +116,123 @@ ames %>%
 
 -   We have found the we have some outliers present in the data which can be reason for the skewness.
 
-# Bivariate analysis     
+# Bivariate analysis
 
-- To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.
 
-## Heat Map to find high corrlated features.
+-   To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.
+
+## Heat Map to find highly correlated features.
 
 ```{r}
 
 corr_var(num, # name of dataset
   Sale_Price, # name of variable to focus on
-  top = 5 # display top 5 correlations
+  top = 3 # display top 5 correlations
 ) 
   
 ```
+
+We can see top 3 numerical feature that are directly correlated to the response variable.
+
+1.  **Gr_Liv_Area** Above Ground Living Area in sqft
+2.  **Garage_Area** Garage Area in sqft
+3.  **Total_Bsmt_SF** Total basement Size in sqft
+
+Now, We look at each feature one by one and see if we can improve the relation?
+
+## Relation between Sale Price and Above ground living area size
+
+```{r}
+
+data1 <- ames %>% 
+          filter((!Gr_Liv_Area>3000)) %>% 
+          select(Gr_Liv_Area,Sale_Price)
+
+Gr_lv1 <- data1 %>% 
+  ggplot(aes(Gr_Liv_Area, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation without outliers",
+         x = "Above ground living area size",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+Gr_lv2<- ames %>% 
+  ggplot(aes(Gr_Liv_Area, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation with outliers",
+         x = "Above ground living area size",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+  
+grid.arrange(Gr_lv2, Gr_lv1, ncol=2)
+```
+
+-   Here, we can say that we have some positive relation between sale price and Above Ground Living Area.
+
+    -   But we can see there are some outliers in Above Ground Living Area, which leads to the less weak relation.
+
+-   The Correlation coefficient before removing outliers is **`r cor(ames['Gr_Liv_Area'], ames['Sale_Price'])`**
+
+-   The Correlation coefficient after removing outliers is **`r cor(data1['Gr_Liv_Area'], data1['Sale_Price'])`**
+
+## Relation between Sale Price and Size of garage
+
+```{r}
+
+data2 <- ames %>% 
+          filter((!Garage_Area>1250) & (Garage_Area > 0)) %>% 
+          select(Garage_Area,Sale_Price)
+
+Gar1 <- data2 %>% 
+  ggplot(aes(Garage_Area, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation without outliers",
+         x = "Size of garage",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+Gar2 <- ames %>% 
+  ggplot(aes(Garage_Area, Sale_Price)) +
+  geom_point() +
+  labs(title = "Relation without outliers",
+         x = "Size of garage",
+         y = "Sale Price")+
+  theme_replace() +
+      scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1)) +
+  themes()
+
+grid.arrange(Gar2, Gar1, ncol=2)
+
+```
+
+-   Here, we can say that we have some positive relation between sale price and Size of garage.
+
+    -   But we can see there are some outliers in total basement size, which leads to the less weak relation.
+
+-   The Correlation coefficient before removing outliers is **`r cor(ames['Garage_Area'], ames['Sale_Price'])`**
+
+-   The Correlation coefficient after removing outliers is **`r cor(data2['Garage_Area'], data2['Sale_Price'])`**
 
 
 ## Relation between Sale Price and Total Basement size
 
 ```{r}
 
-data1 <- ames %>% 
-          filter((!Total_Bsmt_SF>4000)& (Total_Bsmt_SF > 0)) %>% 
+data3 <- ames %>% 
+          filter((!Total_Bsmt_SF>3000)& (Total_Bsmt_SF > 0)) %>% 
           select(Total_Bsmt_SF,Sale_Price)
 
-bsmt1 <- data1 %>% 
+bsmt1 <- data3 %>% 
   ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
   geom_point() +
-  labs(title = "Relation with outliers",
+  labs(title = "Relation without outliers",
          x = "Total Basement size",
          y = "Sale Price")+
   theme_replace() +
@@ -155,7 +242,7 @@ bsmt1 <- data1 %>%
 bsmt2 <- ames %>% 
   ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
   geom_point() +
-  labs(title = "Relation without outliers",
+  labs(title = "Relation with outliers",
          x = "Total Basement size",
          y = "Sale Price")+
   theme_replace() +
@@ -170,10 +257,12 @@ grid.arrange(bsmt2, bsmt1, ncol=2)
 
     -   But we can see there are some outliers in total basement size, which leads to the less weak relation.
 
--   The Correlation coefficient before removing outliers is `r cor(data1['Total_Bsmt_SF'], data1['Sale_Price'])`
+-   The Correlation coefficient before removing outliers is **`r cor(ames['Total_Bsmt_SF'], ames['Sale_Price'])`**
 
--   The Correlation coefficient after removing outliers is `r cor(ames['Total_Bsmt_SF'], ames['Sale_Price'])`
+-   The Correlation coefficient after removing outliers is **`r cor(data3['Total_Bsmt_SF'], data3['Sale_Price'])`**
 
+## Conclusion of EDA      
+-   As we have seen so far that our three features have some outliers and by removing them we can get more strong relation which will help to improve performance of the model.
 
 
 

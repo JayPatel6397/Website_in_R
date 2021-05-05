@@ -100,7 +100,7 @@ d-article li {
 }
 
 d-article p {
-    
+    text-align: justify;
 }
 
 body {
