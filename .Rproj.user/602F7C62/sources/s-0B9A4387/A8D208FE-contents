@@ -1,16 +1,11 @@
 ---
-title: "Jaykumar Patel"
-image: "circle-cropped.png"
-links:
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/jay-patel-9259521b5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BS4HPGApUT8uxK09NaDBoGQ%3D%3D"
-  - label: Github
-    url: "https://github.com/JayPatel6397"
-output:
-  postcards::trestles
-  
+title: "About me"
 site: distill::distill_website
 ---
+ 
+![](my.jpg){style="width:50.0%;left: 25%;position: relative;"}
+          
+-   Dynamic and proactive individual seeking for challenging opportunities in area of Data Science. Eager to contribute to the team project with my knowledge in Machine learning, Python and R coding skills. A person who strongly believes in making a difference in society with the help of technology.
 
 ## Objective
 
@@ -32,9 +27,18 @@ To secure a position where I can efficiently contribute my skills and abilities 
 
 ## Experience
 
-**Grafiks Point** \| Associate Software Engineer \| August 2018 - Till Date
+**Grafiks Point** \| Associate Software Engineer \| August 2018 - March 2021
 
 -   I have worked for the Banking-Insurance project in Grafiks Point, where my role was to develop a web application for the client and automate the existing processes using robotic process automation. I got a chance to interact with Core Java, advanced java Hibernate. Moreover, on the database side, we used PL/SQL database. Moreover, I have interacted with UI Path Studio for the automation of the daily repetitive processes.
+
+## Area of expertise              
+
+- Self-motivated individual and capable of delivering high performance            
+- Detail and accuracy oriented                
+- Ability to work alone as well as in Team                
+- Coordination and Organization                 
+- Punctual and reliable                                
+ 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

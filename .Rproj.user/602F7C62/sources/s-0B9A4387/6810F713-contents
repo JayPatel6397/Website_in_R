@@ -13,7 +13,7 @@ output:
     toc_float: true
 ---
 
-# EDA
+# Univariate analysis
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -47,15 +47,11 @@ library(broom)
 themes <-  function()
   {
   theme(
-        plot.title = element_text(color = "#FF9671", size = 12, face = "bold", hjust = 0.5),
+        plot.title = element_text(color = "#651a34", size = 20, face = "bold", hjust = 0.5),
         plot.subtitle = element_text(hjust = 0.5, color = "#845EC2",  face = "italic" ),
-        axis.title.x = element_text(color = "#FF9671", face = "bold",margin = margin(t = 10, r = 0, b = 0, l = 0)),
-        axis.title.y = element_text(color = "#FF9671", face = "bold", margin = margin(t = 0, r = 10, b = 0, l = 0)),
+        axis.title.x = element_text(color = "#651a34", face = "bold",margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(color = "#651a34", face = "bold", margin = margin(t = 0, r = 10, b = 0, l = 0)),
         text = element_text(colour = "#BCF7E4"),
-        plot.background = element_rect(fill = "#EDFFF9", color = NaN, margin(t = 10, r = 10, b = 10, l = 10)),
-        panel.background = element_rect(fill = "#DDFFF4"),
-        panel.grid.major = element_line(color = "#BCF7E4"),
-        panel.grid.minor = element_line(color = "#BCF7E4"),
         legend.background = element_rect(fill="#B0E0E0",size=0.5, linetype="solid"),
         legend.title = element_text(colour="black", size=10, face="bold"),
         legend.text = element_text(color = "#545479"),
@@ -64,10 +60,9 @@ themes <-  function()
         )
 }
 
-colors <- c('#845EC2', '#D65DB1', '#FF6F91', '#FF9671', "#FFC75F", "#A8F78B","#9367C4", "#4B4453")
+colors <- c('#845EC2', '#D65DB1', '#FF6F91', '#651a34', "#FFC75F", "#A8F78B","#9367C4", "#4B4453")
 
 ```
-
 
 
 ```{r}
@@ -77,12 +72,10 @@ data(ames, package = "modeldata")
 ```
 
 
-
 ```{r}
 num <- ames %>%
   select(where(is.numeric))
 ```
-
 
 
 ## Exploring the univariate distribution of the response variable Sale price.
@@ -152,7 +145,7 @@ data1 <- ames %>%
 bsmt1 <- data1 %>% 
   ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
   geom_point() +
-  labs(title = "Relation between Sale Price and Total Basement size(with outliers)",
+  labs(title = "Relation with outliers",
          x = "Total Basement size",
          y = "Sale Price")+
   theme_replace() +
@@ -162,7 +155,7 @@ bsmt1 <- data1 %>%
 bsmt2 <- ames %>% 
   ggplot(aes(Total_Bsmt_SF, Sale_Price)) +
   geom_point() +
-  labs(title = "Relation between Sale Price and Total Basement size(without outliers)",
+  labs(title = "Relation without outliers",
          x = "Total Basement size",
          y = "Sale Price")+
   theme_replace() +

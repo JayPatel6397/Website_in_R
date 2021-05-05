@@ -1,14 +1,22 @@
 name: "My Website"
 title: "Jaykumar Patel"
 theme: style.css
+base_url: https://jaykumar-patel.netlify.app/
 description: |
   My work in R.
 output_dir: "_site"
 navbar:
+  logo:
+      image: data.png
   right:
     - text: "About me"
       href: index.html
     - text: "R Stuff"
       href: blogs.html
+    - icon: fab fa-github
+      href: https://github.com/JayPatel6397
+    - icon: fab fa-linkedin-in
+      href: https://www.linkedin.com/in/jaykumar-patel-9259521b5/
+  search: false
 
 output: distill::distill_article

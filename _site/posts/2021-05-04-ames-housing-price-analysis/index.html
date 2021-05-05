@@ -90,6 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <meta property="description" itemprop="description" content="This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio."/>
 
+<link rel="canonical" href="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2021-05-04"/>
@@ -100,19 +101,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:title" content="Jaykumar Patel: Ames Housing price analysis"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio."/>
+<meta property="og:url" content="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"/>
+<meta property="og:image" content="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/housing.png"/>
+<meta property="og:image:width" content="610"/>
+<meta property="og:image:height" content="436"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Jaykumar Patel"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="Jaykumar Patel: Ames Housing price analysis"/>
 <meta property="twitter:description" content="This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio."/>
+<meta property="twitter:url" content="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"/>
+<meta property="twitter:image" content="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/housing.png"/>
+<meta property="twitter:image:width" content="610"/>
+<meta property="twitter:image:height" content="436"/>
 
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Jaykumar Patel: Ames Housing price analysis"/>
+<meta name="citation_fulltext_html_url" content="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"/>
+<meta name="citation_online_date" content="2021/05/04"/>
+<meta name="citation_publication_date" content="2021/05/04"/>
+<meta name="citation_author" content="Jaykumar A Patel"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Ames Housing price analysis"]},{"type":"character","attributes":{},"value":["This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jaykumar A Patel"]}]}]},{"type":"character","attributes":{},"value":["2021-05-04"]},{"type":"character","attributes":{},"value":["housing.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Ames Housing price analysis"]},{"type":"character","attributes":{},"value":["This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jaykumar A Patel"]}]}]},{"type":"character","attributes":{},"value":["2021-05-04"]},{"type":"character","attributes":{},"value":["housing.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"]},{"type":"character","attributes":{},"value":["https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -467,265 +482,6 @@ d-title {
 <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
 <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
-<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-<script type="application/javascript">
-
-function getMeta(metaName) {
-  var metas = document.getElementsByTagName('meta');
-  for (let i = 0; i < metas.length; i++) {
-    if (metas[i].getAttribute('name') === metaName) {
-      return metas[i].getAttribute('content');
-    }
-  }
-  return '';
-}
-
-function offsetURL(url) {
-  var offset = getMeta('distill:offset');
-  return offset ? offset + '/' + url : url;
-}
-
-function createFuseIndex() {
-
-  // create fuse index
-  var options = {
-    keys: [
-      { name: 'title', weight: 20 },
-      { name: 'categories', weight: 15 },
-      { name: 'description', weight: 10 },
-      { name: 'contents', weight: 5 },
-    ],
-    ignoreLocation: true,
-    threshold: 0
-  };
-  var fuse = new window.Fuse([], options);
-
-  // fetch the main search.json
-  return fetch(offsetURL('search.json'))
-    .then(function(response) {
-      if (response.status == 200) {
-        return response.json().then(function(json) {
-          // index main articles
-          json.articles.forEach(function(article) {
-            fuse.add(article);
-          });
-          // download collections and index their articles
-          return Promise.all(json.collections.map(function(collection) {
-            return fetch(offsetURL(collection)).then(function(response) {
-              if (response.status === 200) {
-                return response.json().then(function(articles) {
-                  articles.forEach(function(article) {
-                    fuse.add(article);
-                  });
-                })
-              } else {
-                return Promise.reject(
-                  new Error('Unexpected status from search index request: ' +
-                            response.status)
-                );
-              }
-            });
-          })).then(function() {
-            return fuse;
-          });
-        });
-
-      } else {
-        return Promise.reject(
-          new Error('Unexpected status from search index request: ' +
-                      response.status)
-        );
-      }
-    });
-}
-
-window.document.addEventListener("DOMContentLoaded", function (event) {
-
-  // get search element (bail if we don't have one)
-  var searchEl = window.document.getElementById('distill-search');
-  if (!searchEl)
-    return;
-
-  createFuseIndex()
-    .then(function(fuse) {
-
-      // make search box visible
-      searchEl.classList.remove('hidden');
-
-      // initialize autocomplete
-      var options = {
-        autoselect: true,
-        hint: false,
-        minLength: 2,
-      };
-      window.autocomplete(searchEl, options, [{
-        source: function(query, callback) {
-          const searchOptions = {
-            isCaseSensitive: false,
-            shouldSort: true,
-            minMatchCharLength: 2,
-            limit: 10,
-          };
-          var results = fuse.search(query, searchOptions);
-          callback(results
-            .map(function(result) { return result.item; })
-          );
-        },
-        templates: {
-          suggestion: function(suggestion) {
-            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-              : '';
-            var html = `
-              <div class="search-item">
-                <h3>${suggestion.title}</h3>
-                <div class="search-item-description">
-                  ${suggestion.description || ''}
-                </div>
-                <div class="search-item-preview">
-                  ${img}
-                </div>
-              </div>
-            `;
-            return html;
-          }
-        }
-      }]).on('autocomplete:selected', function(event, suggestion) {
-        window.location.href = offsetURL(suggestion.path);
-      });
-      // remove inline display style on autocompleter (we want to
-      // manage responsive display via css)
-      $('.algolia-autocomplete').css("display", "");
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-
-});
-
-</script>
-
-<style type="text/css">
-
-.nav-search {
-  font-size: x-small;
-}
-
-/* Algolioa Autocomplete */
-
-.algolia-autocomplete {
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: sub;
-  background-color: white;
-  color: black;
-  padding: 6px;
-  padding-top: 8px;
-  padding-bottom: 0;
-  border-radius: 6px;
-  border: 1px #0F2E3D solid;
-  width: 180px;
-}
-
-
-@media screen and (max-width: 768px) {
-  .distill-site-nav .algolia-autocomplete {
-    display: none;
-    visibility: hidden;
-  }
-  .distill-site-nav.responsive .algolia-autocomplete {
-    display: inline-block;
-    visibility: visible;
-  }
-  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-    margin-left: 0;
-    width: 400px;
-    max-height: 400px;
-  }
-}
-
-.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-  width: 90%;
-  outline: none;
-  border: none;
-}
-
-.algolia-autocomplete .aa-hint {
-  color: #999;
-}
-.algolia-autocomplete .aa-dropdown-menu {
-  width: 550px;
-  max-height: 70vh;
-  overflow-x: visible;
-  overflow-y: scroll;
-  padding: 5px;
-  margin-top: 3px;
-  margin-left: -150px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #999;
-  border-top: none;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-  cursor: pointer;
-  padding: 5px 4px;
-  border-bottom: 1px solid #eee;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-  border-bottom: none;
-  margin-bottom: 2px;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-  overflow: hidden;
-  font-size: 0.8em;
-  line-height: 1.4em;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-  font-size: 1rem;
-  margin-block-start: 0;
-  margin-block-end: 5px;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-  display: inline-block;
-  overflow: hidden;
-  height: 2.8em;
-  width: 80%;
-  margin-right: 4%;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-  display: inline-block;
-  width: 15%;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-  height: 3em;
-  width: auto;
-  display: none;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-  display: initial;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-  background-color: #eee;
-}
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-  font-weight: bold;
-  font-style: normal;
-}
-
-</style>
-
-
 <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2165,8 +1921,8 @@ d-byline {
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
-  --heading-size:    18px;
-  --contents-size:   13px;
+  --heading-size:    20px;
+  --contents-size:   15px;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -2203,6 +1959,25 @@ d-appendix {
   text-transform: uppercase;
 }
 
+.distill-site-header .logo img {
+    max-height: 31px !important;
+}
+
+d-article h2 {
+    font-size: 28px !important;
+}
+
+d-article h1 {
+    font-size: 35px !important;
+}
+
+d-article li {
+    text-align: justify;
+}
+
+d-article p {
+    
+}
 
 body {
   background-color: #E0EBEE;
@@ -2391,12 +2166,20 @@ d-appendix d-footnote-list a.footnote-backlink {
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
+<a class="logo">
+<img src="../../data.png" alt="Logo"/>
+</a>
 <a href="../../index.html" class="title">Jaykumar Patel</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
 <a href="../../index.html">About me</a>
 <a href="../../blogs.html">R Stuff</a>
+<a href="https://github.com/JayPatel6397">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/in/jaykumar-patel-9259521b5/">
+<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2423,10 +2206,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#load-libraries">Load Libraries</a></li>
-<li><a href="#load-ames-housing-data">Load Ames Housing Data</a></li>
-<li><a href="#select-numeric-variables">Select Numeric Variables</a></li>
-<li><a href="#eda">EDA</a>
+<li><a href="#univariate-analysis">Univariate analysis</a>
 <ul>
 <li><a href="#exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</a></li>
 <li><a href="#find-outliers-in-your-original-response-variable">Find outlier(s) in your original response variable</a></li>
@@ -2439,37 +2219,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ul>
 </nav>
 </div>
-<h2 id="load-libraries">Load Libraries</h2>
+<h1 id="univariate-analysis">Univariate analysis</h1>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h2 id="load-ames-housing-data">Load Ames Housing Data</h2>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h2 id="select-numeric-variables">Select Numeric Variables</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 6 x 34
-  Lot_Frontage Lot_Area Year_Built Year_Remod_Add Mas_Vnr_Area
-         &lt;dbl&gt;    &lt;int&gt;      &lt;int&gt;          &lt;int&gt;        &lt;dbl&gt;
-1          141    31770       1960           1960          112
-2           80    11622       1961           1961            0
-3           81    14267       1958           1958          108
-4           93    11160       1968           1968            0
-5           74    13830       1997           1998            0
-6           78     9978       1998           1998           20
-# ... with 29 more variables: BsmtFin_SF_1 &lt;dbl&gt;, BsmtFin_SF_2 &lt;dbl&gt;,
-#   Bsmt_Unf_SF &lt;dbl&gt;, Total_Bsmt_SF &lt;dbl&gt;, First_Flr_SF &lt;int&gt;,
-#   Second_Flr_SF &lt;int&gt;, Gr_Liv_Area &lt;int&gt;, Bsmt_Full_Bath &lt;dbl&gt;,
-#   Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;int&gt;, Half_Bath &lt;int&gt;,
-#   Bedroom_AbvGr &lt;int&gt;, Kitchen_AbvGr &lt;int&gt;, TotRms_AbvGrd &lt;int&gt;,
-#   Fireplaces &lt;int&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;,
-#   Wood_Deck_SF &lt;int&gt;, Open_Porch_SF &lt;int&gt;, Enclosed_Porch &lt;int&gt;,
-#   Three_season_porch &lt;int&gt;, Screen_Porch &lt;int&gt;, Pool_Area &lt;int&gt;,
-#   Misc_Val &lt;int&gt;, Mo_Sold &lt;int&gt;, Year_Sold &lt;int&gt;, Sale_Price &lt;int&gt;,
-#   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+
 </div>
-<h1 id="eda">EDA</h1>
 <h2 id="exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2506,7 +2265,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <li><p>The Correlation coefficient before removing outliers is 0.6629602</p></li>
 <li><p>The Correlation coefficient after removing outliers is 0.6325288</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2518,10 +2277,25 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Patel (2021, May 4). Jaykumar Patel: Ames Housing price analysis. Retrieved from https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{patel2021ames,
+  author = {Patel, Jaykumar A},
+  title = {Jaykumar Patel: Ames Housing price analysis},
+  url = {https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/},
+  year = {2021}
+}</pre>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+  <p>© Jaykumar Patel 2021. Made with the R <a href="https://rstudio.github.io/distill/">distill</a> package.</p>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 

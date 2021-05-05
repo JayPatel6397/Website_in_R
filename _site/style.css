@@ -45,8 +45,8 @@ d-byline {
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
-  --heading-size:    18px;
-  --contents-size:   13px;
+  --heading-size:    20px;
+  --contents-size:   15px;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -83,6 +83,35 @@ d-appendix {
   text-transform: uppercase;
 }
 
+.distill-site-header .logo img {
+    max-height: 31px !important;
+}
+
+d-article h2 {
+    font-size: 28px !important;
+}
+
+d-article h1 {
+    font-size: 35px !important;
+}
+
+d-article li {
+    text-align: justify;
+}
+
+d-article p {
+    text-align: justify;
+}
+
+h2:after{
+    content: "";
+    display: block;
+    background: url("data-science.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 6px 0 0;
+}
 
 body {
   background-color: #E0EBEE;

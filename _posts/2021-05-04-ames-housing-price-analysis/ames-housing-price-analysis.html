@@ -1482,10 +1482,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#load-libraries">Load Libraries</a></li>
-<li><a href="#load-ames-housing-data">Load Ames Housing Data</a></li>
-<li><a href="#select-numeric-variables">Select Numeric Variables</a></li>
-<li><a href="#eda">EDA</a>
+<li><a href="#univariate-analysis">Univariate analysis</a>
 <ul>
 <li><a href="#exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</a></li>
 <li><a href="#find-outliers-in-your-original-response-variable">Find outlier(s) in your original response variable</a></li>
@@ -1498,37 +1495,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </nav>
 </div>
-<h2 id="load-libraries">Load Libraries</h2>
+<h1 id="univariate-analysis">Univariate analysis</h1>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h2 id="load-ames-housing-data">Load Ames Housing Data</h2>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<h2 id="select-numeric-variables">Select Numeric Variables</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 6 x 34
-  Lot_Frontage Lot_Area Year_Built Year_Remod_Add Mas_Vnr_Area
-         &lt;dbl&gt;    &lt;int&gt;      &lt;int&gt;          &lt;int&gt;        &lt;dbl&gt;
-1          141    31770       1960           1960          112
-2           80    11622       1961           1961            0
-3           81    14267       1958           1958          108
-4           93    11160       1968           1968            0
-5           74    13830       1997           1998            0
-6           78     9978       1998           1998           20
-# ... with 29 more variables: BsmtFin_SF_1 &lt;dbl&gt;, BsmtFin_SF_2 &lt;dbl&gt;,
-#   Bsmt_Unf_SF &lt;dbl&gt;, Total_Bsmt_SF &lt;dbl&gt;, First_Flr_SF &lt;int&gt;,
-#   Second_Flr_SF &lt;int&gt;, Gr_Liv_Area &lt;int&gt;, Bsmt_Full_Bath &lt;dbl&gt;,
-#   Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;int&gt;, Half_Bath &lt;int&gt;,
-#   Bedroom_AbvGr &lt;int&gt;, Kitchen_AbvGr &lt;int&gt;, TotRms_AbvGrd &lt;int&gt;,
-#   Fireplaces &lt;int&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;,
-#   Wood_Deck_SF &lt;int&gt;, Open_Porch_SF &lt;int&gt;, Enclosed_Porch &lt;int&gt;,
-#   Three_season_porch &lt;int&gt;, Screen_Porch &lt;int&gt;, Pool_Area &lt;int&gt;,
-#   Misc_Val &lt;int&gt;, Mo_Sold &lt;int&gt;, Year_Sold &lt;int&gt;, Sale_Price &lt;int&gt;,
-#   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+
 </div>
-<h1 id="eda">EDA</h1>
 <h2 id="exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -1565,7 +1541,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><p>The Correlation coefficient before removing outliers is 0.6629602</p></li>
 <li><p>The Correlation coefficient after removing outliers is 0.6325288</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

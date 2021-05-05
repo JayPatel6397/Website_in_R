@@ -1,0 +1,2 @@
+"0","num <- ames %>%"
+"0","  select(where(is.numeric))"

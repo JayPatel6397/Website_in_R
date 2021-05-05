@@ -3,7 +3,7 @@
     "path": "G:/Projects/My Website/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "2749616560",
     "contents": "",
     "dirty": false,
     "created": 1620100879263.0,
@@ -12,19 +12,19 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,0",
-        "scrollLine": "0",
+        "cursorPosition": "39,55",
+        "scrollLine": "20",
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
         "docOutlineVisible": "0",
-        "rmdVisualModeLocation": "530:286"
+        "rmdVisualModeLocation": "63:27"
     },
     "folds": "",
-    "lastKnownWriteTime": 1620185495,
+    "lastKnownWriteTime": 1620227372,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620185495346,
+    "last_content_update": 1620227372995,
     "read_only": false,
     "read_only_alternatives": []
 }
