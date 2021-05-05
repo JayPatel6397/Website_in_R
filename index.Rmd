@@ -1,5 +1,5 @@
 ---
-title: "My Website"
+title: "Jaykumar Patel"
 image: "circle-cropped.png"
 links:
   - label: LinkedIn
@@ -7,10 +7,34 @@ links:
   - label: Github
     url: "https://github.com/JayPatel6397"
 output:
-  postcards::jolla
+  postcards::trestles
   
 site: distill::distill_website
 ---
+
+## Objective
+
+To secure a position where I can efficiently contribute my skills and abilities to the growth of the organization and build my professional career.
+
+## Education
+
+**St.Clair College** \| Windsor, CAN
+
+-   Data Analytics for Business \| 2020 - 2021
+
+**Parul Institute of Engg. & Technology** \| Vadodara, IND
+
+-   Bachelors in Computer Engineering \| 2014 - 2018
+
+**Jay Ambe Vidhyabhavan, Bardoli** \| Bardoli, IND
+
+-   XIIth (G.S.E.B) \| 2012 - 2014
+
+## Experience
+
+**Grafiks Point** \| Associate Software Engineer \| August 2018 - Till Date
+
+-   I have worked for the Banking-Insurance project in Grafiks Point, where my role was to develop a web application for the client and automate the existing processes using robotic process automation. I got a chance to interact with Core Java, advanced java Hibernate. Moreover, on the database side, we used PL/SQL database. Moreover, I have interacted with UI Path Studio for the automation of the daily repetitive processes.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -19,4 +43,3 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html
 
 ```
-

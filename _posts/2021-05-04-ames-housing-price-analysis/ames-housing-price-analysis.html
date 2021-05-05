@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ames-housing-price-analysis_files/anchor-4.2.2/anchor.min.js","ames-housing-price-analysis_files/bowser-1.9.3/bowser.min.js","ames-housing-price-analysis_files/distill-2.2.21/template.v2.js","ames-housing-price-analysis_files/header-attrs-2.7.13/header-attrs.js","ames-housing-price-analysis_files/jquery-1.11.3/jquery.min.js","ames-housing-price-analysis_files/popper-2.6.0/popper.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-bundle.umd.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-light-border.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.umd.min.js","ames-housing-price-analysis_files/webcomponents-2.0.0/webcomponents.js","housing.png"]}
+  {"type":"character","attributes":{},"value":["ames-housing-price-analysis_files/anchor-4.2.2/anchor.min.js","ames-housing-price-analysis_files/bowser-1.9.3/bowser.min.js","ames-housing-price-analysis_files/distill-2.2.21/template.v2.js","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-7-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-8-1.png","ames-housing-price-analysis_files/figure-html5/unnamed-chunk-9-1.png","ames-housing-price-analysis_files/header-attrs-2.7.13/header-attrs.js","ames-housing-price-analysis_files/jquery-1.11.3/jquery.min.js","ames-housing-price-analysis_files/popper-2.6.0/popper.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-bundle.umd.min.js","ames-housing-price-analysis_files/tippy-6.2.7/tippy-light-border.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.css","ames-housing-price-analysis_files/tippy-6.2.7/tippy.umd.min.js","ames-housing-price-analysis_files/webcomponents-2.0.0/webcomponents.js","housing.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1478,9 +1478,94 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#load-libraries">Load Libraries</a></li>
+<li><a href="#load-ames-housing-data">Load Ames Housing Data</a></li>
+<li><a href="#select-numeric-variables">Select Numeric Variables</a></li>
+<li><a href="#eda">EDA</a>
+<ul>
+<li><a href="#exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</a></li>
+<li><a href="#find-outliers-in-your-original-response-variable">Find outlier(s) in your original response variable</a></li>
+</ul></li>
+<li><a href="#bivariate-analysis">Bivariate analysis</a>
+<ul>
+<li><a href="#heat-map-to-find-high-corrlated-features.">Heat Map to find high corrlated features.</a></li>
+<li><a href="#relation-between-sale-price-and-total-basement-size">Relation between Sale Price and Total Basement size</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<h2 id="load-libraries">Load Libraries</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="load-ames-housing-data">Load Ames Housing Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="select-numeric-variables">Select Numeric Variables</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 6 x 34
+  Lot_Frontage Lot_Area Year_Built Year_Remod_Add Mas_Vnr_Area
+         &lt;dbl&gt;    &lt;int&gt;      &lt;int&gt;          &lt;int&gt;        &lt;dbl&gt;
+1          141    31770       1960           1960          112
+2           80    11622       1961           1961            0
+3           81    14267       1958           1958          108
+4           93    11160       1968           1968            0
+5           74    13830       1997           1998            0
+6           78     9978       1998           1998           20
+# ... with 29 more variables: BsmtFin_SF_1 &lt;dbl&gt;, BsmtFin_SF_2 &lt;dbl&gt;,
+#   Bsmt_Unf_SF &lt;dbl&gt;, Total_Bsmt_SF &lt;dbl&gt;, First_Flr_SF &lt;int&gt;,
+#   Second_Flr_SF &lt;int&gt;, Gr_Liv_Area &lt;int&gt;, Bsmt_Full_Bath &lt;dbl&gt;,
+#   Bsmt_Half_Bath &lt;dbl&gt;, Full_Bath &lt;int&gt;, Half_Bath &lt;int&gt;,
+#   Bedroom_AbvGr &lt;int&gt;, Kitchen_AbvGr &lt;int&gt;, TotRms_AbvGrd &lt;int&gt;,
+#   Fireplaces &lt;int&gt;, Garage_Cars &lt;dbl&gt;, Garage_Area &lt;dbl&gt;,
+#   Wood_Deck_SF &lt;int&gt;, Open_Porch_SF &lt;int&gt;, Enclosed_Porch &lt;int&gt;,
+#   Three_season_porch &lt;int&gt;, Screen_Porch &lt;int&gt;, Pool_Area &lt;int&gt;,
+#   Misc_Val &lt;int&gt;, Mo_Sold &lt;int&gt;, Year_Sold &lt;int&gt;, Sale_Price &lt;int&gt;,
+#   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+</div>
+<h1 id="eda">EDA</h1>
+<h2 id="exploring-the-univariate-distribution-of-the-response-variable-sale-price.">Exploring the univariate distribution of the response variable Sale price.</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li>As we look at the mean and median, <code>median &lt; mean</code> so we can say that our variable is right skewed. But it is not much skewed so we can consider it as normally distributed because in real world we never get perfectly distributed data.<br />
+</li>
+<li>The reason behind this skewness can be outliers present in the response variable..</li>
+</ul>
+<h2 id="find-outliers-in-your-original-response-variable">Find outlier(s) in your original response variable</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li>We have found the we have some outliers present in the data which can be reason for the skewness.</li>
+</ul>
+<h1 id="bivariate-analysis">Bivariate analysis</h1>
+<ul>
+<li>To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.</li>
+</ul>
+<h2 id="heat-map-to-find-high-corrlated-features.">Heat Map to find high corrlated features.</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-8-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<h2 id="relation-between-sale-price-and-total-basement-size">Relation between Sale Price and Total Basement size</h2>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="ames-housing-price-analysis_files/figure-html5/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li><p>Here, we can say that we have some positive relation between sale price and total basement size.</p>
+<ul>
+<li>But we can see there are some outliers in total basement size, which leads to the less weak relation.</li>
+</ul></li>
+<li><p>The Correlation coefficient before removing outliers is 0.6629602</p></li>
+<li><p>The Correlation coefficient after removing outliers is 0.6325288</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

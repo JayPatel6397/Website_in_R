@@ -1,28 +1,20 @@
 ---
-title: "Ames Housing price analysis"
-description: |
-  This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio.
-author:
-  - name: Jaykumar A Patel
-date: 2021-05-04
-preview: housing.png
+title: "Ames Housing Data Analysis"
+author: "Jaykumar Patel"
+date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    self_contained: false
-    toc: true
-    toc_float: true
+  html_document:
+    theme: cerulean
+    highlight: espresso
+    toc: TRUE
+    toc_float: TRUE
 ---
-
-# EDA
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
 
 ```{r, include=FALSE}
 library(kableExtra)
 ```
 
+## Load Libraries
 
 ```{r, include=FALSE}
 
@@ -68,7 +60,7 @@ colors <- c('#845EC2', '#D65DB1', '#FF6F91', '#FF9671', "#FFC75F", "#A8F78B","#9
 
 ```
 
-
+## Load Ames Housing Data
 
 ```{r}
 
@@ -76,14 +68,16 @@ data(ames, package = "modeldata")
 
 ```
 
-
+## Select Numeric Variables
 
 ```{r}
 num <- ames %>%
   select(where(is.numeric))
+
+head(num)
 ```
 
-
+# EDA
 
 ## Exploring the univariate distribution of the response variable Sale price.
 
@@ -180,6 +174,12 @@ grid.arrange(bsmt2, bsmt1, ncol=2)
 -   The Correlation coefficient before removing outliers is `r cor(data1['Total_Bsmt_SF'], data1['Sale_Price'])`
 
 -   The Correlation coefficient after removing outliers is `r cor(ames['Total_Bsmt_SF'], ames['Sale_Price'])`
+
+
+
+
+
+
 
 
 

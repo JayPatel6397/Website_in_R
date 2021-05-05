@@ -3,7 +3,7 @@
     "path": "G:/Projects/My Website/_posts/2021-05-04-ames-housing-price-analysis/ames-housing-price-analysis.Rmd",
     "project_path": "_posts/2021-05-04-ames-housing-price-analysis/ames-housing-price-analysis.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "857252268",
     "contents": "",
     "dirty": false,
     "created": 1620139247241.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,19",
-        "scrollLine": "0"
+        "cursorPosition": "15,5",
+        "scrollLine": "32"
     },
     "folds": "",
-    "lastKnownWriteTime": 1620139384,
+    "lastKnownWriteTime": 1620140305,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1620139384276,
+    "last_content_update": 1620140305356,
     "read_only": false,
     "read_only_alternatives": []
 }
