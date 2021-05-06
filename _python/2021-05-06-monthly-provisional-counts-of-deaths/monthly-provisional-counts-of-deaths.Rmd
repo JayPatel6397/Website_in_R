@@ -24,20 +24,21 @@ library(reticulate)
 
 # Importing Required Libraries
 
-```{r}
-pd <- import('pandas')
-np <- import('numpy')
+```{python}
+import pandas as pd
+import numpy as np
 ```
 
 # Reading Data
 
-```{r}
-death = pd$read_csv('Data/causes_of_death.csv', index_col= 0L)
+```{python}
+death = pd.read_csv('Data/causes_of_death.csv', index_col= 0)
+
 ```
 
 
 ```{python}
-r.death.head()
+death.head()
 ```
 
 
@@ -49,9 +50,8 @@ r.death.head()
 ## AllCause
 
 
-```{r}
-
-pd$DataFrame$describe(death['AllCause'])
+```{python}
+death['AllCause'].describe()
 
 ```
 
@@ -72,7 +72,7 @@ This column tells us about total number of people died in the month of particula
 ## NaturalCause
 
 ```{python}
-r.death['NaturalCause'].describe()
+death['NaturalCause'].describe()
 ```
 
 This column tells us about total number of people died in the month of particular year in the United State of America due to natural cause.
@@ -87,9 +87,97 @@ This column tells us about total number of people died in the month of particula
 
     *  It has very close stadard deviation as allcause column which also add support to the statement that they have some identical numbers or nearest numbers
 
+## Septicemia (A40-A41)
 
+```{python}
+death['Septicemia..A40.A41.'].describe()
+```
 
+This column tells us about number of people died in the month of particular year in the United State of America  due to **Septicemia (A40-A41)** disease.
 
+*  From the count row we can find that we have ***1736*** non null values in our data and remaining rows contain null values. 
+
+*  In this column we can see that the ***mean*** value is ***44.580069*** and ***median (50%)*** is ***10***, that means our ***data is right skewed distributed.***
+
+    *  Around 44 people die every month from this disease.
+    
+*  Standard deviation of this column is **88.269978**. It has the lowest standard deviation of all.
+
+## Malignant neoplasms (C00-C97)
+
+```{python}
+death['Malignant.neoplasms..C00.C97.'].describe()
+```
+
+This column tells us about total number of people died in the month of particular year in the United State of America due to Malignant neoplasms.
+
+*  From the count row we can find that we have ***2249*** non null values in our data and remaining rows contain null values. 
+
+*  In this column we can see that the ***mean*** value is ***549.167185*** and ***median (50%)*** is ***69***, that means our ***data is right skewed distributed.*** 
+
+    *  We can say that around 550 people die every month. As compared to the Septicemia more than 12 times more people died due to this disease.
+
+*  Standard deviation of this column is **1277.215975**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value. 
+
+    *  It has not as large standard deviation as of allcause column but still it has a high standard deviation which means data is not close to it mean so we can not say that our statement for death for everymonth is accurate.
+    
+## For the remaining columns
+
+*  We can see that the every column have the low median value and the high mean value. Which means all the column are right skewed.
+
+*  We can say that the data frame is not closely bound to its mean values. Our data have very distinct values and its difference from minmum to maximum values are very high.
+
+    *  This difference means there are very few deaths have high frequency and number of deaths for months are comparatively smallar than it mean values.
+
+    * Here, we can not state that the number of people died in the month is equal to the mean value and reason is that, as we can see we have very small median and at the same time we have high mean.
+
+    * This means that most of the data is less than the mean value there are some outliers. Those outliers are the reason we are having a large mean value.
+   
+# Summary Statistics for Categorical Data
+
+## Race/Ethnicity
+
+-   This column tells us about total number of people died as per their race in the month of particular year in the United State of America.
+
+```{python}
+print(death.groupby(['Race.Ethnicity']).size())
+```
+
+* Our data have uniform distribution when we consider the races.
+* It is good to have uniform distribution it help use to train a model which is not bias.
+
+## Sex
+-   This column tells us about total number of people died as per their sex in the month of particular year in the United State of America.
+    
+```{python}
+print(death.groupby(['Sex']).size())
+```   
+    
+Here also,          
+* Our data have uniform distribution when we look for the sex.
+* Having uniform distribution in the data is help us to see how each category affects 
+    
+## AgeGroup
+-   This column tells us about total number of people died as per their agegroup in the month of particular year in the United State of America. 
+    
+```{python}
+print (death.groupby(['AgeGroup']).size())
+``` 
+   
+Same as above data column it also have uniform distribution so if we want to train our model to predict the cause of the death.
+
+We can use following columns:
+   * Race/Ethnicity
+   * Sex
+   * AgeGroup    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 

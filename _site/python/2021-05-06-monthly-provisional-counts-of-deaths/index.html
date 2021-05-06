@@ -1891,7 +1891,7 @@ html {
   /*-- Main font sizes --*/
   --title-size:      28px;
   --body-size:       1.06rem;
-  --code-size:       14px;
+  --code-size:       18px;
   --aside-size:      12px;
   --fig-cap-size:    13px;
   /*-- Main font colors --*/
@@ -1973,6 +1973,15 @@ d-article li {
 
 d-article p {
     text-align: justify;
+}
+
+d-article {
+  line-height: 2.3em !important;
+}
+
+d-article div.sourceCode pre{
+  color: #651a34 !important;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 5%), 0 6px 20px 0 rgb(0 0 0 / 10%);
 }
 
 body {
@@ -2210,6 +2219,15 @@ d-appendix d-footnote-list a.footnote-backlink {
 <ul>
 <li><a href="#allcause">AllCause</a></li>
 <li><a href="#naturalcause">NaturalCause</a></li>
+<li><a href="#septicemia-a40-a41">Septicemia (A40-A41)</a></li>
+<li><a href="#malignant-neoplasms-c00-c97">Malignant neoplasms (C00-C97)</a></li>
+<li><a href="#for-the-remaining-columns">For the remaining columns</a></li>
+</ul></li>
+<li><a href="#summary-statistics-for-categorical-data">Summary Statistics for Categorical Data</a>
+<ul>
+<li><a href="#raceethnicity">Race/Ethnicity</a></li>
+<li><a href="#sex">Sex</a></li>
+<li><a href="#agegroup">AgeGroup</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2220,27 +2238,21 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ul>
 <h1 id="importing-required-libraries">Importing Required Libraries</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/reticulate/man/import.html'>import</a></span><span class='op'>(</span><span class='st'>'pandas'</span><span class='op'>)</span>
-<span class='va'>np</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/reticulate/man/import.html'>import</a></span><span class='op'>(</span><span class='st'>'numpy'</span><span class='op'>)</span>
-</code></pre>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
 </div>
 <h1 id="reading-data">Reading Data</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>death</span> <span class='op'>=</span> <span class='va'>pd</span><span class='op'>$</span><span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>'Data/causes_of_death.csv'</span>, index_col<span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span>
-</code></pre>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>death <span class="op">=</span> pd.read_csv(<span class="st">&#39;Data/causes_of_death.csv&#39;</span>, index_col<span class="op">=</span> <span class="dv">0</span>)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r.death.head()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>death.head()</span></code></pre></div>
 <pre><code>   Date.Of.Death.Year  ...  Jurisdiction.of.Occurrence
-1              2019.0  ...               United States
-2              2019.0  ...               United States
-3              2019.0  ...               United States
-4              2019.0  ...               United States
-5              2019.0  ...               United States
+1                2019  ...               United States
+2                2019  ...               United States
+3                2019  ...               United States
+4                2019  ...               United States
+5                2019  ...               United States
 
 [5 rows x 23 columns]</code></pre>
 </div>
@@ -2251,19 +2263,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </ul>
 <h2 id="allcause">AllCause</h2>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pd</span><span class='op'>$</span><span class='va'>DataFrame</span><span class='op'>$</span><span class='fu'>describe</span><span class='op'>(</span><span class='va'>death</span><span class='op'>[</span><span class='st'>'AllCause'</span><span class='op'>]</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>       AllCause
-count  2849.000
-mean   2280.159
-std    6028.864
-min      10.000
-25%      86.000
-50%     271.000
-75%    1498.000
-max   53242.000</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>death[<span class="st">&#39;AllCause&#39;</span>].describe()</span></code></pre></div>
+<pre><code>count     2849.000000
+mean      2280.159354
+std       6028.864306
+min         10.000000
+25%         86.000000
+50%        271.000000
+75%       1498.000000
+max      53242.000000
+Name: AllCause, dtype: float64</code></pre>
 </div>
 <p>This column tells us about total number of people died in the month of particular year in the United State of America.</p>
 <ul>
@@ -2278,7 +2287,7 @@ max   53242.000</code></pre>
 </ul>
 <h2 id="naturalcause">NaturalCause</h2>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r.death[<span class="st">&#39;NaturalCause&#39;</span>].describe()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>death[<span class="st">&#39;NaturalCause&#39;</span>].describe()</span></code></pre></div>
 <pre><code>count     2717.000000
 mean      2194.944056
 std       5945.745418
@@ -2301,7 +2310,120 @@ Name: NaturalCause, dtype: float64</code></pre>
 <li>It has very close stadard deviation as allcause column which also add support to the statement that they have some identical numbers or nearest numbers</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="septicemia-a40-a41">Septicemia (A40-A41)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>death[<span class="st">&#39;Septicemia..A40.A41.&#39;</span>].describe()</span></code></pre></div>
+<pre><code>count    1736.000000
+mean       44.580069
+std        88.269978
+min         0.000000
+25%         0.000000
+50%        10.000000
+75%        36.000000
+max       484.000000
+Name: Septicemia..A40.A41., dtype: float64</code></pre>
+</div>
+<p>This column tells us about number of people died in the month of particular year in the United State of America due to <strong>Septicemia (A40-A41)</strong> disease.</p>
+<ul>
+<li><p>From the count row we can find that we have <strong><em>1736</em></strong> non null values in our data and remaining rows contain null values.</p></li>
+<li><p>In this column we can see that the <strong><em>mean</em></strong> value is <strong><em>44.580069</em></strong> and <strong><em>median (50%)</em></strong> is <strong><em>10</em></strong>, that means our <strong><em>data is right skewed distributed.</em></strong></p>
+<ul>
+<li>Around 44 people die every month from this disease.</li>
+</ul></li>
+<li><p>Standard deviation of this column is <strong>88.269978</strong>. It has the lowest standard deviation of all.</p></li>
+</ul>
+<h2 id="malignant-neoplasms-c00-c97">Malignant neoplasms (C00-C97)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>death[<span class="st">&#39;Malignant.neoplasms..C00.C97.&#39;</span>].describe()</span></code></pre></div>
+<pre><code>count    2249.000000
+mean      549.167185
+std      1277.215975
+min         0.000000
+25%        20.000000
+50%        69.000000
+75%       338.000000
+max      6498.000000
+Name: Malignant.neoplasms..C00.C97., dtype: float64</code></pre>
+</div>
+<p>This column tells us about total number of people died in the month of particular year in the United State of America due to Malignant neoplasms.</p>
+<ul>
+<li><p>From the count row we can find that we have <strong><em>2249</em></strong> non null values in our data and remaining rows contain null values.</p></li>
+<li><p>In this column we can see that the <strong><em>mean</em></strong> value is <strong><em>549.167185</em></strong> and <strong><em>median (50%)</em></strong> is <strong><em>69</em></strong>, that means our <strong><em>data is right skewed distributed.</em></strong></p>
+<ul>
+<li>We can say that around 550 people die every month. As compared to the Septicemia more than 12 times more people died due to this disease.</li>
+</ul></li>
+<li><p>Standard deviation of this column is <strong>1277.215975</strong>. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value.</p>
+<ul>
+<li>It has not as large standard deviation as of allcause column but still it has a high standard deviation which means data is not close to it mean so we can not say that our statement for death for everymonth is accurate.</li>
+</ul></li>
+</ul>
+<h2 id="for-the-remaining-columns">For the remaining columns</h2>
+<ul>
+<li><p>We can see that the every column have the low median value and the high mean value. Which means all the column are right skewed.</p></li>
+<li><p>We can say that the data frame is not closely bound to its mean values. Our data have very distinct values and its difference from minmum to maximum values are very high.</p>
+<ul>
+<li><p>This difference means there are very few deaths have high frequency and number of deaths for months are comparatively smallar than it mean values.</p></li>
+<li><p>Here, we can not state that the number of people died in the month is equal to the mean value and reason is that, as we can see we have very small median and at the same time we have high mean.</p></li>
+<li><p>This means that most of the data is less than the mean value there are some outliers. Those outliers are the reason we are having a large mean value.</p></li>
+</ul></li>
+</ul>
+<h1 id="summary-statistics-for-categorical-data">Summary Statistics for Categorical Data</h1>
+<h2 id="raceethnicity">Race/Ethnicity</h2>
+<ul>
+<li>This column tells us about total number of people died as per their race in the month of particular year in the United State of America.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(death.groupby([<span class="st">&#39;Race.Ethnicity&#39;</span>]).size())</span></code></pre></div>
+<pre><code>Race.Ethnicity
+Hispanic                                         500
+Non-Hispanic American Indian or Alaska Native    500
+Non-Hispanic Asian                               500
+Non-Hispanic Black                               500
+Non-Hispanic White                               500
+Other                                            500
+dtype: int64</code></pre>
+</div>
+<ul>
+<li>Our data have uniform distribution when we consider the races.</li>
+<li>It is good to have uniform distribution it help use to train a model which is not bias.</li>
+</ul>
+<h2 id="sex">Sex</h2>
+<ul>
+<li>This column tells us about total number of people died as per their sex in the month of particular year in the United State of America.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(death.groupby([<span class="st">&#39;Sex&#39;</span>]).size())</span></code></pre></div>
+<pre><code>Sex
+F         720
+Female    780
+M         720
+Male      780
+dtype: int64</code></pre>
+</div>
+<p>Here also,<br />
+* Our data have uniform distribution when we look for the sex. * Having uniform distribution in the data is help us to see how each category affects</p>
+<h2 id="agegroup">AgeGroup</h2>
+<ul>
+<li>This column tells us about total number of people died as per their agegroup in the month of particular year in the United State of America.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (death.groupby([<span class="st">&#39;AgeGroup&#39;</span>]).size())</span></code></pre></div>
+<pre><code>AgeGroup
+0-4 years            300
+15-24 years          300
+25-34 years          300
+35-44 years          300
+45-54 years          300
+5-14 years           300
+55-64 years          300
+65-74 years          300
+75-84 years          300
+85 years and over    300
+dtype: int64</code></pre>
+</div>
+<p>Same as above data column it also have uniform distribution so if we want to train our model to predict the cause of the death.</p>
+<p>We can use following columns: * Race/Ethnicity * Sex * AgeGroup</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
