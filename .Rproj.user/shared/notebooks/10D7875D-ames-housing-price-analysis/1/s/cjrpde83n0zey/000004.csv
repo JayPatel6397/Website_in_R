@@ -1,0 +1,7 @@
+"0","ggplot(data = ames, aes(x = Gr_Liv_Area , y = Sale_Price )) +"
+"0","  geom_point() +"
+"0","    labs(title = ""Linearity"","
+"0","         x = ""size of above ground living area "","
+"0","         y = ""Sale Price"") +"
+"0","    theme_replace() +"
+"0","    themes()"

@@ -1,0 +1,8 @@
+"0",""
+"0","models <- list("
+"0","  ""Above ground living area size"" = lm(Sale_Price ~ Gr_Liv_Area, data = data1),"
+"0","  ""Size of garage""     = lm(Sale_Price ~ Garage_Area, data = data2),"
+"0","    ""Total Basement size""     = lm(Sale_Price ~ Total_Bsmt_SF, data = data3)"
+"0",")"
+"0",""
+"0","modelsummary(models)"

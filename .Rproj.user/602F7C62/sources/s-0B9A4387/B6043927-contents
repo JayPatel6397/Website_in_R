@@ -14,7 +14,7 @@ navbar:
     - text: "R Stuff"
       href: blogs.html
     - icon: fab fa-github
-      href: https://github.com/JayPatel6397
+      href: https://github.com/JayPatel6397/Website_in_R
     - icon: fab fa-linkedin-in
       href: https://www.linkedin.com/in/jaykumar-patel-9259521b5/
   search: false

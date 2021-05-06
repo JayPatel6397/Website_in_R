@@ -9,7 +9,7 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Ames Housing price analysis</title>
+      <title>Ames Housing Price Analysis</title>
       <dc:creator>Jaykumar A Patel</dc:creator>
       <link>https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis</link>
       <description>This blog post includes EDA, Modeling and how to improve model performance and how Model Assessment and Diagnostics is done. Here, I am not predicting any price, in this blog you just get to know how to do analysis of price of the house with the help of single linear model.</description>

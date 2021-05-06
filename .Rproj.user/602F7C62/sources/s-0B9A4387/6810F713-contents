@@ -1,5 +1,5 @@
 ---
-title: "Ames Housing price analysis"
+title: "Ames Housing Price Analysis"
 description: |
   This blog post includes EDA, Modeling and how to improve model performance and how Model Assessment and Diagnostics is done. Here, I am not predicting any price, in this blog you just get to know how to do analysis of price of the house with the help of single linear model.
 author:
@@ -13,11 +13,11 @@ output:
     toc_float: true
 ---
 
-# Problem Statment      
-- Analyze the features affecting the price of the house and understand the linear equation for the feature. Understand how we can interpret the linear equation and with the help of that equation we can predict the price.
+# Problem Statement
 
+-   Analyze the features affecting the price of the house and understand the linear equation for the feature. Understand how we can interpret the linear equation and with the help of that equation we can predict the price.
 
-# Univariate analysis
+# Univariate Analysis
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -120,8 +120,7 @@ ames %>%
 
 -   We have found the we have some outliers present in the data which can be reason for the skewness.
 
-# Bivariate analysis
-
+# Bivariate Analysis
 
 -   To do the bivariate analysis we need to find the features which are highly correlated to the response variable that is house price.
 
@@ -224,7 +223,6 @@ grid.arrange(Gar2, Gar1, ncol=2)
 
 -   The Correlation coefficient after removing outliers is **`r cor(data2['Garage_Area'], data2['Sale_Price'])`**
 
-
 ## Relation between Sale Price and Total Basement size
 
 ```{r}
@@ -265,26 +263,28 @@ grid.arrange(bsmt2, bsmt1, ncol=2)
 
 -   The Correlation coefficient after removing outliers is **`r cor(data3['Total_Bsmt_SF'], data3['Sale_Price'])`**
 
-# Conclusion of EDA      
+# Conclusion of EDA
+
 -   As we have seen so far that our three features have some outliers and by removing them we can get more strong relation which will help to improve performance of the model.
 
-# Data Modeling          
-- In this section we are going to learn how to fit a linear model for the each numerical feature we have seen above and how to interpret there equation.
+# Data Modeling
 
-## Model 1 (Sale Price and Above ground living area size)     
+-   In this section we are going to learn how to fit a linear model for the each numerical feature we have seen above and how to interpret there equation.
 
-- When we fit the model, we can see the following values and with the help of that we can form an linear equation.
+## Model 1 (Sale Price and Above ground living area size)
+
+-   When we fit the model, we can see the following values and with the help of that we can form an linear equation.
 
 ```{r}
 m1 <- lm(Sale_Price ~ Gr_Liv_Area, data = data1)
 tidy(m1)
 ```
 
-$\hat{y}= 5905.812 + 116.874 \times Above-ground-living-area-size$        
+$\hat{y}= 5905.812 + 116.874 \times Above-ground-living-area-size$
 
-- Y intercept value means that, For a house with 0 Above ground living area size, the house price will be **5905.812 USD**.   
+-   Y intercept value means that, For a house with 0 Above ground living area size, the house price will be **5905.812 USD**.
 
-- Slope of the fitted line means that, If we increase Above ground living area size by 1 Sqft, the price of the house increases with **116.874 USD**.
+-   Slope of the fitted line means that, If we increase Above ground living area size by 1 Sqft, the price of the house increases with **116.874 USD**.
 
 ## Model 2 (Sale Price and Size of garage)
 
@@ -297,9 +297,9 @@ tidy(m2)
 
 $\hat{y}= 46925.28 + 277.37 \times Size-of-garage$
 
-- Y intercept value means that, For a house with 0 Size of garage, the house price will be **46925.28 USD**.       
+-   Y intercept value means that, For a house with 0 Size of garage, the house price will be **46925.28 USD**.
 
-- Slope of the fitted line means that, If we increase Size of garage size by 1 Sqft, the price of the house increases with **277.37 USD**.
+-   Slope of the fitted line means that, If we increase Size of garage size by 1 Sqft, the price of the house increases with **277.37 USD**.
 
 ## Model 3 (Sale Price and Total Basement size)
 
@@ -309,34 +309,105 @@ tidy(m3)
 ```
 
 $\hat{y}= 35393.94 + 137 \times Total-Basement-Size$
-             
-- Y intercept value means that, For a house with 0 total basement size , the house price will be **35393.94 USD**.       
 
-- Slope of the fitted line means that, If we increase size of total basement by 1 Sqft, the price of the house with **137 USD**.
+-   Y intercept value means that, For a house with 0 total basement size , the house price will be **35393.94 USD**.
 
+-   Slope of the fitted line means that, If we increase size of total basement by 1 Sqft, the price of the house with **137 USD**.
 
+# Model Assessment
 
+-   In this part we select which model is the best model out of the three that we have created.\
+-   How we selected the model and what measures we have take in consideration for selecting the model?
 
+```{r}
 
+models <- list(
+  "Above ground living area size" = lm(Sale_Price ~ Gr_Liv_Area, data = data1),
+  "Size of garage"     = lm(Sale_Price ~ Garage_Area, data = data2),
+    "Total Basement size"     = lm(Sale_Price ~ Total_Bsmt_SF, data = data3)
+)
 
+modelsummary(models)
 
+```
 
+As we can see in the table,
 
+-   Model 1 (Sale price, above ground living area) has **50% variability** of sale price based on the above ground living area, which is the highest.
 
+-   It has highest adjusted R squared value so we can say it is best.
 
+The reason why we considered **Adjusted R squared value** to select best model is that,
 
+-   Adjusted R - squared value only consider those independent variable which really helps in explaining the dependent variable.
 
+-   Here, we are using many independent variable with the single dependent variable and we do not know which one is good one to explain the dependent variable so we can use the adjusted R-squared value.
 
+# Model Diagnostics
 
+Now that you have chosen our best model, we need to determine if it is reliable or not: \
 
+-   There are three things to check.
 
+1.  Linearity
 
+2.  Distribution of Residuals
 
+3.  Constant Variability of residuals
 
+-   Creating two new data columns based on our best model: predicted values for our response variable and the corresponding residuals.
 
+```{r}
+m2_aug <- broom::augment(m1)
+m2_aug
+```
 
+## Checking Linearity
 
+-   Creating plots to check the assumption of linearity. State whether or not this condition is met and explain your reasoning.
 
+```{r}
+ggplot(data = ames, aes(x = Gr_Liv_Area , y = Sale_Price )) +
+  geom_point() +
+    labs(title = "Linearity",
+         x = "size of above ground living area ",
+         y = "Sale Price") +
+    theme_replace() +
+    themes()
+```
 
+-   We can see some linear relation so Linearity condition also met.
 
+## Checking Distribution of Residuals
 
+-   Creating a plot to check the assumption of nearly normal residuals. State whether or not this condition is met and explaining reasoning.
+
+```{r}
+m2_aug %>% 
+  ggplot(aes(.resid))+    
+  geom_histogram(aes(y = stat(density)), color = "#13B4FA",fill = "#FF6F91") +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+    labs(title = "Distribution of residuals",
+         x = "residuals",
+         y = "density") +
+    theme_replace()+
+    themes()
+```
+
+## Checking Constant Variability of residuals
+
+-   Checking the assumption of constant variability. State whether or not this condition is met and explaining reasoning.
+
+```{r}
+ggplot(data = m2_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+    labs(title = "Constant Variability of residuals",
+         x = "Fitted Sale price",
+         y = "Residuals") +
+    theme_replace() +
+    themes()
+```
+
+-   Constant variability is not meeting in this case.
+-   As we see above in the graph between above ground living area size and residuals that as the size of the above ground living area increases the variability of residuals around the 0 line is increases too. So, we can say that constant variability condition is not met.

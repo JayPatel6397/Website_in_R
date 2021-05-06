@@ -1,0 +1,8 @@
+"0","ggplot(data = m2_aug, aes(x = .fitted, y = .resid)) +"
+"0","  geom_point() +"
+"0","  geom_hline(yintercept = 0, linetype = ""dashed"", color = ""red"") +"
+"0","    labs(title = ""Constant Variability of residuals"","
+"0","         x = ""Fitted Sale price"","
+"0","         y = ""Residuals"") +"
+"0","    theme_replace() +"
+"0","    themes()"
