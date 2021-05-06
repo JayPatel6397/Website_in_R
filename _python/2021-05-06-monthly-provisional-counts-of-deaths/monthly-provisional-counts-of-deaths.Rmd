@@ -1,11 +1,11 @@
 ---
 title: "Monthly Provisional Counts Of Deaths"
 description: |
-  In this blog I have used Python packages in the Rstudio and done the EDA as well as Summary Statistics on the cause of the death in the united state of america in the year 2019 and 2020.
+  In this blog I have used Python packages in the Rstudio and done the EDA as well as Summary Statistics on the cause of the death in the united state of america in the year 2019 and 2020. 
 author:
   - name: Jaykumar patel
 date: 2021-05-06
-preview: both.JPEG
+preview: https://media.giphy.com/media/3orif8V09vBtyRFVU4/giphy.gif
 output:
   distill::distill_article:
     self_contained: false
@@ -14,8 +14,10 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, R.options = list(width = 60))
 library(reticulate)
+library(tidyverse)
+library(ggthemes)
 ```
 
 # Analysis of the Monthly Provisional Death counts
@@ -36,11 +38,9 @@ death = pd.read_csv('Data/causes_of_death.csv', index_col= 0)
 
 ```
 
-
 ```{python}
 death.head()
 ```
-
 
 # Summary Statistics for Numerical Columns
 
@@ -48,7 +48,6 @@ death.head()
 -   **Describe** function gives the mean, std and IQR values.
 
 ## AllCause
-
 
 ```{python}
 death['AllCause'].describe()
@@ -77,15 +76,15 @@ death['NaturalCause'].describe()
 
 This column tells us about total number of people died in the month of particular year in the United State of America due to natural cause.
 
-*  From the count row we can find that we have ***2717*** non null values in our data and remaining rows contain null values. 
+-   From the count row we can find that we have ***2717*** non null values in our data and remaining rows contain null values.
 
-*  In this column we can see that the ***mean*** value is ***2194.944056*** and ***median (50%)*** is ***216***, that means our ***data is right skewed distributed.*** 
+-   In this column we can see that the ***mean*** value is ***2194.944056*** and ***median (50%)*** is ***216***, that means our ***data is right skewed distributed.***
 
-    *  We have the closest mean and median to the all cause's mean and median. It means the both are having the some what similar numbers for observation.
+    -   We have the closest mean and median to the all cause's mean and median. It means the both are having the some what similar numbers for observation.
 
-*  Standard deviation of this column is **5945.745418**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value. 
+-   Standard deviation of this column is **5945.745418**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value.
 
-    *  It has very close stadard deviation as allcause column which also add support to the statement that they have some identical numbers or nearest numbers
+    -   It has very close stadard deviation as allcause column which also add support to the statement that they have some identical numbers or nearest numbers
 
 ## Septicemia (A40-A41)
 
@@ -93,15 +92,15 @@ This column tells us about total number of people died in the month of particula
 death['Septicemia..A40.A41.'].describe()
 ```
 
-This column tells us about number of people died in the month of particular year in the United State of America  due to **Septicemia (A40-A41)** disease.
+This column tells us about number of people died in the month of particular year in the United State of America due to **Septicemia (A40-A41)** disease.
 
-*  From the count row we can find that we have ***1736*** non null values in our data and remaining rows contain null values. 
+-   From the count row we can find that we have ***1736*** non null values in our data and remaining rows contain null values.
 
-*  In this column we can see that the ***mean*** value is ***44.580069*** and ***median (50%)*** is ***10***, that means our ***data is right skewed distributed.***
+-   In this column we can see that the ***mean*** value is ***44.580069*** and ***median (50%)*** is ***10***, that means our ***data is right skewed distributed.***
 
-    *  Around 44 people die every month from this disease.
-    
-*  Standard deviation of this column is **88.269978**. It has the lowest standard deviation of all.
+    -   Around 44 people die every month from this disease.
+
+-   Standard deviation of this column is **88.269978**. It has the lowest standard deviation of all.
 
 ## Malignant neoplasms (C00-C97)
 
@@ -111,28 +110,28 @@ death['Malignant.neoplasms..C00.C97.'].describe()
 
 This column tells us about total number of people died in the month of particular year in the United State of America due to Malignant neoplasms.
 
-*  From the count row we can find that we have ***2249*** non null values in our data and remaining rows contain null values. 
+-   From the count row we can find that we have ***2249*** non null values in our data and remaining rows contain null values.
 
-*  In this column we can see that the ***mean*** value is ***549.167185*** and ***median (50%)*** is ***69***, that means our ***data is right skewed distributed.*** 
+-   In this column we can see that the ***mean*** value is ***549.167185*** and ***median (50%)*** is ***69***, that means our ***data is right skewed distributed.***
 
-    *  We can say that around 550 people die every month. As compared to the Septicemia more than 12 times more people died due to this disease.
+    -   We can say that around 550 people die every month. As compared to the Septicemia more than 12 times more people died due to this disease.
 
-*  Standard deviation of this column is **1277.215975**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value. 
+-   Standard deviation of this column is **1277.215975**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value.
 
-    *  It has not as large standard deviation as of allcause column but still it has a high standard deviation which means data is not close to it mean so we can not say that our statement for death for everymonth is accurate.
-    
+    -   It has not as large standard deviation as of allcause column but still it has a high standard deviation which means data is not close to it mean so we can not say that our statement for death for everymonth is accurate.
+
 ## For the remaining columns
 
-*  We can see that the every column have the low median value and the high mean value. Which means all the column are right skewed.
+-   We can see that the every column have the low median value and the high mean value. Which means all the column are right skewed.
 
-*  We can say that the data frame is not closely bound to its mean values. Our data have very distinct values and its difference from minmum to maximum values are very high.
+-   We can say that the data frame is not closely bound to its mean values. Our data have very distinct values and its difference from minmum to maximum values are very high.
 
-    *  This difference means there are very few deaths have high frequency and number of deaths for months are comparatively smallar than it mean values.
+    -   This difference means there are very few deaths have high frequency and number of deaths for months are comparatively smallar than it mean values.
 
-    * Here, we can not state that the number of people died in the month is equal to the mean value and reason is that, as we can see we have very small median and at the same time we have high mean.
+    -   Here, we can not state that the number of people died in the month is equal to the mean value and reason is that, as we can see we have very small median and at the same time we have high mean.
 
-    * This means that most of the data is less than the mean value there are some outliers. Those outliers are the reason we are having a large mean value.
-   
+    -   This means that most of the data is less than the mean value there are some outliers. Those outliers are the reason we are having a large mean value.
+
 # Summary Statistics for Categorical Data
 
 ## Race/Ethnicity
@@ -143,41 +142,172 @@ This column tells us about total number of people died in the month of particula
 print(death.groupby(['Race.Ethnicity']).size())
 ```
 
-* Our data have uniform distribution when we consider the races.
-* It is good to have uniform distribution it help use to train a model which is not bias.
+-   Our data have uniform distribution when we consider the races.
+-   It is good to have uniform distribution it help use to train a model which is not bias.
 
 ## Sex
+
 -   This column tells us about total number of people died as per their sex in the month of particular year in the United State of America.
-    
+
 ```{python}
 print(death.groupby(['Sex']).size())
-```   
-    
-Here also,          
-* Our data have uniform distribution when we look for the sex.
-* Having uniform distribution in the data is help us to see how each category affects 
-    
+```
+
+Here also,\
+\* Our data have uniform distribution when we look for the sex. \* Having uniform distribution in the data is help us to see how each category affects
+
 ## AgeGroup
--   This column tells us about total number of people died as per their agegroup in the month of particular year in the United State of America. 
-    
+
+-   This column tells us about total number of people died as per their agegroup in the month of particular year in the United State of America.
+
 ```{python}
 print (death.groupby(['AgeGroup']).size())
-``` 
-   
+```
+
 Same as above data column it also have uniform distribution so if we want to train our model to predict the cause of the death.
 
 We can use following columns:
-   * Race/Ethnicity
-   * Sex
-   * AgeGroup    
-    
-    
-    
-    
-    
-    
-    
-    
+
+-   Race/Ethnicity
+
+-   Sex
+
+-   AgeGroup
+
+# Exploratory Data Analysis Numeric Data         
+
+```{r, include=FALSE}
+library(gridExtra)
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center")
+
+themes <-  function()
+  {
+  theme(
+        plot.title = element_text(color = "#651a34", size = 20, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5, color = "#845EC2",  face = "italic" ),
+        axis.title.x = element_text(color = "#651a34", face = "bold",margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(color = "#651a34", face = "bold", margin = margin(t = 0, r = 10, b = 0, l = 0)),
+        text = element_text(colour = "#BCF7E4"),
+        legend.background = element_rect(fill="#B0E0E0",size=0.5, linetype="solid"),
+        legend.title = element_text(colour="black", size=10, face="bold"),
+        legend.text = element_text(color = "#545479"),
+        legend.position = "none",
+        legend.direction = "horizontal" 
+        )
+}
+
+
+```
+
+## Plotting histogram for AllCause Column
+
+```{r}
+py$death %>% ggplot(aes(AllCause))+    
+  geom_histogram(aes(y = stat(density)), color = "#13B4FA",fill = "#FF6F91", bins = 40) +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+  labs(title = "Distribution of Total Death",
+         x = "Total Death",
+         y = "density") +
+    theme_minimal()+
+  themes()
+```
+                    
+-  We can see here that our data have a right skewness so if we are going to use this data column for the modeling than we need to first remove the skewnees then we can do modeling.          
+
+### Removing Skewness   
+
+```{r}
+p1 <- py$death %>%
+    ggplot(aes(AllCause)) +
+    geom_histogram(aes(y = stat(density)),bins = 28, color = "#13B4FA",fill = "#FF6F91") +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+    labs(title = "Total Death",
+         x = "Total Death",
+         y = "density") +
+    theme_minimal() + themes()
+
+p2 <- py$death %>%
+    ggplot(aes(log10(AllCause))) +
+    geom_histogram(aes(y = stat(density)),bins = 28, color = "#13B4FA",fill = "#FFC75F") +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+    labs(title = "Total Death (log10 based)",
+         x = "Total Death",
+         y = "density") +
+    theme_minimal()+ themes()
+
+p3 <- py$death %>%
+    ggplot(aes(sqrt(AllCause))) +
+    geom_histogram(aes(y = stat(density)),bins = 28, color = "#13B4FA",fill = "#845EC2") +
+    geom_density(fill = "#845EC2", alpha = 0.5, color = NaN)+
+    labs(title = "Total Death(Sqrt. based)",
+         x = "Total Death",
+         y = "density") +
+    theme_minimal() + themes()
+
+grid.arrange(p1,p2,p3, ncol = 2)
+```
+
+-  Now if we look at the distribution of the AllCause we get the normal distribution. By applying log10, we can convert skewness to normal distribution.
+
+## Checking for the outliers for All Cause column
+
+```{r}
+py$death %>% 
+  ggplot(aes(y = AllCause))+
+  geom_boxplot(outlier.colour = "#651a34")+
+  theme_minimal()+
+  themes()
+```
+
+- We can clear see that there are a lot of outliers present in this column. There is a way to remove those that is by applying the Log.
+
+### Outliears after applying Log
+
+```{r}
+py$death %>% 
+  ggplot(aes(y = log10(AllCause)))+
+  geom_boxplot(outlier.colour = "#651a34")+
+  theme_minimal()+
+  themes()
+```
+            
+-   As we can see now, there is no outliers present in the column so now, we can use this to train out model.
+
+
+# Conclusion of numerical data exploration
+-   We have seen the method to remove skewnees and outliers from the data. We always keep this in mind that before moving to the modeling part we always need to do the exploration of the data, so we can know our data better.              
+      -   Its behavior, is there any pattern present in the data.
+      
+# Exploratory Data Analysis chategorical Data  
+-   In this part we are going to plot some graph to check skewness of the chategorical data and outliers present in that data.    
+-   Unlike numerical data we can not use histogram to find out skewness, we need to plot bar graph.       
+
+## Plotting Bar Graph for AgeGroup column
+
+```{r}
+Age <- py$death %>% 
+          select(AgeGroup) %>% 
+          group_by(AgeGroup) %>% 
+          summarize(frequency = n())
+
+Age %>% 
+  ggplot(aes(AgeGroup,frequency))+
+  geom_col(stat = "identity", fill = "#651a34" )+
+  coord_flip()+
+  theme_minimal()+
+  labs( title = "Distribution of Age Group"
+  )+
+  themes()
+```
+
+-  We can see here that our data is evenly distributed in the age group. Every age group have same number of death. So there is no need to do any transformation.
+
+
+
+
+
+
+
 
 
 

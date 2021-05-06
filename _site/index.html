@@ -1863,13 +1863,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
   html {
     /*-- Main font sizes --*/
     --title-size:      28px;
     --body-size:       1.06rem;
-    --code-size:       18px;
+    --code-size:       15px;
     --aside-size:      12px;
     --fig-cap-size:    13px;
     /*-- Main font colors --*/
@@ -1947,6 +1947,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   d-article li {
       text-align: justify;
+  }
+
+  pre code {
+    white-space: pre-wrap !important;
   }
 
   d-article p {

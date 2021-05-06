@@ -5,7 +5,7 @@ description: |
 author:
   - name: Jaykumar A Patel
 date: 2021-05-04
-preview: housing.png
+preview: https://media.giphy.com/media/l2Jeb2KyB09KnvFTi/giphy.gif
 output:
   distill::distill_article:
     self_contained: false
@@ -97,7 +97,7 @@ ames %>%
          x = "Total Price",
          y = "density") +
   scale_x_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1))+
-    theme_replace()+
+    theme_minimal()+
     themes()
 ```
 
@@ -112,7 +112,7 @@ ames %>%
   geom_boxplot(outlier.color = "#13B4FA" )+
   labs(title = "Outliers in Sale Price",
        y = "Sale Price") +
-  theme_replace()+
+  theme_minimal()+
   scale_y_continuous(labels  = label_number(scale = 1e-05, prefix = "$", suffix = "hk", accuracy = 1))+
   themes()
 
