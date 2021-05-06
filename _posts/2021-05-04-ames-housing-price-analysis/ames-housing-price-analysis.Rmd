@@ -1,7 +1,7 @@
 ---
 title: "Ames Housing price analysis"
 description: |
-  This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio.
+  This blog post includes EDA, Modeling and how to improve model performance and how Model Assessment and Diagnostics is done. Here, I am not predicting any price, in this blog you just get to know how to do analysis of price of the house with the help of single linear model.
 author:
   - name: Jaykumar A Patel
 date: 2021-05-04
@@ -12,6 +12,10 @@ output:
     toc: true
     toc_float: true
 ---
+
+# Problem Statment      
+- Analyze the features affecting the price of the house and understand the linear equation for the feature. Understand how we can interpret the linear equation and with the help of that equation we can predict the price.
+
 
 # Univariate analysis
 
@@ -261,8 +265,77 @@ grid.arrange(bsmt2, bsmt1, ncol=2)
 
 -   The Correlation coefficient after removing outliers is **`r cor(data3['Total_Bsmt_SF'], data3['Sale_Price'])`**
 
-## Conclusion of EDA      
+# Conclusion of EDA      
 -   As we have seen so far that our three features have some outliers and by removing them we can get more strong relation which will help to improve performance of the model.
+
+# Data Modeling          
+- In this section we are going to learn how to fit a linear model for the each numerical feature we have seen above and how to interpret there equation.
+
+## Model 1 (Sale Price and Above ground living area size)     
+
+- When we fit the model, we can see the following values and with the help of that we can form an linear equation.
+
+```{r}
+m1 <- lm(Sale_Price ~ Gr_Liv_Area, data = data1)
+tidy(m1)
+```
+
+$\hat{y}= 5905.812 + 116.874 \times Above-ground-living-area-size$        
+
+- Y intercept value means that, For a house with 0 Above ground living area size, the house price will be **5905.812 USD**.   
+
+- Slope of the fitted line means that, If we increase Above ground living area size by 1 Sqft, the price of the house increases with **116.874 USD**.
+
+## Model 2 (Sale Price and Size of garage)
+
+```{r}
+
+m2 <- lm(Sale_Price ~ Garage_Area, data = data2)
+tidy(m2)
+
+```
+
+$\hat{y}= 46925.28 + 277.37 \times Size-of-garage$
+
+- Y intercept value means that, For a house with 0 Size of garage, the house price will be **46925.28 USD**.       
+
+- Slope of the fitted line means that, If we increase Size of garage size by 1 Sqft, the price of the house increases with **277.37 USD**.
+
+## Model 3 (Sale Price and Total Basement size)
+
+```{r}
+m3 <- lm(Sale_Price ~ Total_Bsmt_SF, data = data3)
+tidy(m3)
+```
+
+$\hat{y}= 35393.94 + 137 \times Total-Basement-Size$
+             
+- Y intercept value means that, For a house with 0 total basement size , the house price will be **35393.94 USD**.       
+
+- Slope of the fitted line means that, If we increase size of total basement by 1 Sqft, the price of the house with **137 USD**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

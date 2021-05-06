@@ -12,7 +12,7 @@
       <title>Ames Housing price analysis</title>
       <dc:creator>Jaykumar A Patel</dc:creator>
       <link>https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis</link>
-      <description>This blog post includes videos that review some Git and GitHub basics and build on that, showing ways you might work on a project together in RStudio.</description>
+      <description>This blog post includes EDA, Modeling and how to improve model performance and how Model Assessment and Diagnostics is done. Here, I am not predicting any price, in this blog you just get to know how to do analysis of price of the house with the help of single linear model.</description>
       <guid>https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis</guid>
       <pubDate>Tue, 04 May 2021 00:00:00 +0000</pubDate>
       <media:content url="https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/housing.png" medium="image" type="image/png" width="610" height="436"/>

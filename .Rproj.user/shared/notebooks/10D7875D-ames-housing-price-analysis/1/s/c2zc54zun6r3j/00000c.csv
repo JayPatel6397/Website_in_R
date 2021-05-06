@@ -1,0 +1,2 @@
+"0","m1 <- lm(Sale_Price ~ Gr_Liv_Area, data = data1)"
+"0","tidy(m1)"

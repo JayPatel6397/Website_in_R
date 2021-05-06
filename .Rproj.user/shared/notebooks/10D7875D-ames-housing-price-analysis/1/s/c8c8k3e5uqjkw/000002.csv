@@ -1,0 +1,2 @@
+"0","m3 <- lm(Sale_Price ~ Total_Bsmt_SF, data = data3)"
+"0","tidy(m3)"
