@@ -1,0 +1,112 @@
+---
+title: "Monthly Provisional Counts Of Deaths"
+description: |
+  In this blog I have used Python packages in the Rstudio and done the EDA as well as Summary Statistics on the cause of the death in the united state of america in the year 2019 and 2020.
+author:
+  - name: Jaykumar patel
+date: 2021-05-06
+preview: both.JPEG
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(reticulate)
+```
+
+# Analysis of the Monthly Provisional Death counts
+
+-   In this analysis we going to look into the cause of death in the United State in the year of 2019 and 2020.
+
+# Importing Required Libraries
+
+```{r}
+pd <- import('pandas')
+np <- import('numpy')
+```
+
+# Reading Data
+
+```{r}
+death = pd$read_csv('Data/causes_of_death.csv', index_col= 0L)
+```
+
+
+```{python}
+r.death.head()
+```
+
+
+# Summary Statistics for Numerical Columns
+
+-   The describe() function computes a summary of statistics pertaining to the DataFrame columns.
+-   **Describe** function gives the mean, std and IQR values.
+
+## AllCause
+
+
+```{r}
+
+pd$DataFrame$describe(death['AllCause'])
+
+```
+
+This column tells us about total number of people died in the month of particular year in the United State of America.
+
+-   From the count row we can find that we have ***2849*** non null values in our data and remaining rows contain null values.
+
+-   In this column we can see that the ***mean*** value is ***2280.159354*** and ***median (50%)*** is ***271***, that means our ***data is right skewed distributed.***
+
+    -   So the frequency of people died at very large number is not high we can say that there are some outliears which leads to this difference.
+
+-   Standard deviation of this column is **6028.864306**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value.
+
+-   Data is not containing close Continuous number for the people died in the United State of America. It has very large range.
+
+-   As we can see the range is 0-53242 and we have only 2849 data, This is why we have high standard deviation and large difference between mean and median.
+
+## NaturalCause
+
+```{python}
+r.death['NaturalCause'].describe()
+```
+
+This column tells us about total number of people died in the month of particular year in the United State of America due to natural cause.
+
+*  From the count row we can find that we have ***2717*** non null values in our data and remaining rows contain null values. 
+
+*  In this column we can see that the ***mean*** value is ***2194.944056*** and ***median (50%)*** is ***216***, that means our ***data is right skewed distributed.*** 
+
+    *  We have the closest mean and median to the all cause's mean and median. It means the both are having the some what similar numbers for observation.
+
+*  Standard deviation of this column is **5945.745418**. It indicates data are more spread out. A high standard deviation means data is not closely bound to the mean value. 
+
+    *  It has very close stadard deviation as allcause column which also add support to the statement that they have some identical numbers or nearest numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

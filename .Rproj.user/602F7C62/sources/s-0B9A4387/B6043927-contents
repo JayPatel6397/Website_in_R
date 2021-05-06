@@ -5,14 +5,22 @@ base_url: https://jaykumar-patel.netlify.app/
 description: |
   My work in R.
 output_dir: "_site"
+preview: Portfolio.gif
+collections:
+  posts: 
+    categories: true
+  python:
+    categories: true
 navbar:
   logo:
       image: data.png
   right:
     - text: "About me"
       href: index.html
-    - text: "R Stuff"
+    - text: R Blog Posts
       href: blogs.html
+    - text: Python Blog Posts
+      href: python.html
     - icon: fab fa-github
       href: https://github.com/JayPatel6397/Website_in_R
     - icon: fab fa-linkedin-in
