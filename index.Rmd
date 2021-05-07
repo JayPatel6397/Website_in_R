@@ -1,15 +1,19 @@
 ---
-title: "About me"
+title: "Jaykumar Patel"
+image: "my.jpg"
 site: distill::distill_website
+output:
+  postcards::trestles
+links:
+    - label: GitHub
+      href: https://github.com/JayPatel6397/Website_in_R
+    - label: LinkedIn
+      href: https://www.linkedin.com/in/jaykumar-patel-9259521b5/
 ---
  
-![](my.jpg){style="width:50.0%;left: 25%;position: relative;"}
-          
--   Dynamic and proactive individual seeking for challenging opportunities in area of Data Science. Eager to contribute to the team project with my knowledge in Machine learning, Python and R coding skills. A person who strongly believes in making a difference in society with the help of technology.
+## Bio
 
-## Objective
-
-To secure a position where I can efficiently contribute my skills and abilities to the growth of the organization and build my professional career.
+  Dynamic and proactive individual seeking for challenging opportunities in area of Data Science. Eager to contribute to the team project with my knowledge in Machine learning, Python and R coding skills. A person who strongly believes in making a difference in society with the help of technology.
 
 ## Education
 
@@ -25,20 +29,6 @@ To secure a position where I can efficiently contribute my skills and abilities 
 
 -   XIIth (G.S.E.B) \| 2012 - 2014
 
-## Experience
-
-**Grafiks Point** \| Associate Software Engineer \| August 2018 - March 2021
-
--   I have worked for the Banking-Insurance project in Grafiks Point, where my role was to develop a web application for the client and automate the existing processes using robotic process automation. I got a chance to interact with Core Java, advanced java Hibernate. Moreover, on the database side, we used PL/SQL database. Moreover, I have interacted with UI Path Studio for the automation of the daily repetitive processes.
-
-## Area of expertise              
-
-- Self-motivated individual and capable of delivering high performance            
-- Detail and accuracy oriented                
-- Ability to work alone as well as in Team                
-- Coordination and Organization                 
-- Punctual and reliable                                
- 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

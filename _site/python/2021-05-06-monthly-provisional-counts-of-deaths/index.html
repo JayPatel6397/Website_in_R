@@ -1931,7 +1931,7 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       32px;
+  --title-size:       20px;
   --text-color:       #F0CA89;
   --text-size:        16px;
   --hover-color:      #C3C391;
@@ -1953,12 +1953,14 @@ d-appendix {
   text-transform: uppercase;
 }
 
-.distill-site-header .logo img {
-    max-height: 31px !important;
-}
+
 
 d-article h2 {
     font-size: 28px !important;
+}
+
+img {
+      vertical-align: baseline !important; 
 }
 
 d-article h1 {
@@ -1968,6 +1970,7 @@ d-article h1 {
 d-article li {
     text-align: justify;
 }
+
 
 pre code {
   white-space: pre-wrap !important;
@@ -2173,9 +2176,6 @@ d-appendix d-footnote-list a.footnote-backlink {
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a class="logo">
-<img src="../../data.png" alt="Logo"/>
-</a>
 <a href="../../index.html" class="title">Jaykumar Patel</a>
 </div>
 <div class="nav-right">

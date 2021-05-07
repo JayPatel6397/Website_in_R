@@ -61,7 +61,7 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       32px;
+  --title-size:       20px;
   --text-color:       #F0CA89;
   --text-size:        16px;
   --hover-color:      #C3C391;
@@ -83,12 +83,14 @@ d-appendix {
   text-transform: uppercase;
 }
 
-.distill-site-header .logo img {
-    max-height: 31px !important;
-}
+
 
 d-article h2 {
     font-size: 28px !important;
+}
+
+img {
+      vertical-align: baseline !important; 
 }
 
 d-article h1 {
@@ -98,6 +100,7 @@ d-article h1 {
 d-article li {
     text-align: justify;
 }
+
 
 pre code {
   white-space: pre-wrap !important;

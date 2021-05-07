@@ -12,8 +12,6 @@ collections:
   python:
     categories: true
 navbar:
-  logo:
-      image: data.png
   right:
     - text: "About me"
       href: index.html
