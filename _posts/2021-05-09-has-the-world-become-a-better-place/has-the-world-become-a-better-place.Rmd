@@ -1,0 +1,309 @@
+---
+title: "Has the world become a better place?"
+description: |
+  This blog post gives the answer of the most 
+author:
+  - name: Jaykumar A Patel
+    url: {}
+date: 2021-05-09
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center")
+```
+
+# Problem Statement
+
+-   As a modern ear we think that 
+
+
+There are many things we need to look after before stating answer.
+For Example.
+
+  1. **Life Expectancy**
+  2. **Child Mortality**
+  3. **Human Development Index**
+  4. **Death due to battle**
+  5. **GDP**
+
+```{r,include=FALSE}
+library(gapminder)
+library(here)
+library(tidyverse)
+library(gganimate)
+library(ggthemes)
+```
+
+### Load Data for `Life Expectancy`
+
+```{r}
+Life_exp <- read.csv(file = here("Data", "life-expectancy.csv"))
+head(Life_exp)
+```
+
+### Simplyfing data to find the useful insight.
+
+```{r}
+
+data_1 <- Life_exp %>% 
+  select(Year,Life.expectancy) %>%
+  group_by(Year) %>% 
+  summarize(Life_Expectancy = mean(Life.expectancy, na.rm = TRUE))
+
+
+```
+
+Lets take a look at how life expectancy changed in the passed year. Is it improved or not?
+
+## 1. Plot that illustrate `Year` to `Life Expectancy` in the world.
+
+```{r,fig.width=7, fig.height=4, fig.align='center'}
+graph_1 <- data_1 %>%
+  ggplot(aes(x=Year, y=Life_Expectancy))+
+  geom_line(color = "Grey") +
+  labs(title = "Life Expectancy of the world over time",
+       subtitle = "How Life Expectancy differ by years?", 
+       x = "Year", y = "Mean Life Expectancy") +
+  theme_solarized_2(light = FALSE)+
+  theme(axis.title = element_text(),
+        text = element_text(colour = "#EEEEEE"),
+        title = element_text(colour = "#EEEEEE"),
+        panel.background = element_rect(fill = NA),
+        plot.background = element_rect(fill = "#111111"),
+       panel.grid.major = element_line(color = "gray15"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+graph_1.animation = graph_1 +
+  transition_reveal(Year) +
+  view_follow(fixed_y = TRUE)
+animate(graph_1.animation, height = 500, width = 800, fps = 30, duration = 10, end_pause = 90, res = 100)
+anim_save("Life Expectancy Graph.gif")
+  
+```
+
+By looking at the graph we can see that as time passes life expectancy increased that means we can say that world is moving towards a long and healthy life.
+
+
+### Load Data for `Child Mortality`
+
+```{r}
+Child_Mor <- read.csv(file = here("Data", "child-mortality.csv"))
+head(Child_Mor)
+```
+
+### Simplyfing data to find the useful insight.
+
+```{r}
+
+data_2 <- Child_Mor %>% 
+  select(Year,Child.mortality) %>%
+  group_by(Year) %>% 
+  summarize(Child.mortality = mean(Child.mortality, na.rm = TRUE)/100)
+
+```
+
+As we know a long time ago children died at their early age, so now lets see what change has occurred since then.
+
+## 2. Plot that illustrate `Year` to `Child Mortality` in the world.
+
+```{r ,fig.width=7, fig.height=4, fig.align='center'}
+graph_2 <- data_2 %>%
+  ggplot(aes(x=Year, y=Child.mortality))+
+  geom_line(color = "Grey") +
+  labs(title = "Percentage of Child Mortality in the world over time",
+       subtitle = "How Child Mortality rate changed our time?", 
+       x = "Year", y = "Percentage of Child Mortality") +
+  theme_solarized_2(light = FALSE)+
+  theme(axis.title = element_text(),
+        text = element_text(colour = "#EEEEEE"),
+        title = element_text(colour = "#EEEEEE"),
+        panel.background = element_rect(fill = NA),
+        plot.background = element_rect(fill = "#111111"),
+        panel.grid.major = element_line(color = "gray15"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+  
+graph_2.animation = graph_2 +
+  transition_reveal(Year) +
+  view_follow(fixed_y = TRUE)
+animate(graph_2.animation, height = 500, width = 800, fps = 30, duration = 10, end_pause = 90, res = 100)
+anim_save("Child Mortality Graph.gif")
+
+
+```
+
+We can see clearly from the graph that as we moved towards the 2000's Child Mortality decreases that means child lives longer than before.
+
+### Load Data for `Human Development Index`
+
+```{r}
+Human_Dev <- read.csv(file = here("Data", "human-development-index-escosura.csv"))
+head(Human_Dev)
+```
+
+### Simplyfing data to find the useful insight.
+
+```{r}
+
+data_3 <- Human_Dev %>% 
+  select(Year,Historical.Index.of.Human.Development..Prados.de.la.Escosura.) %>%
+  group_by(Year) %>% 
+  summarize(Human_Index = mean(Historical.Index.of.Human.Development..Prados.de.la.Escosura., na.rm = TRUE))
+
+```
+
+We are living in the modern era so does it really mean that human development index rises? To answer that lets see following graph.
+
+## 3. Plot that illustrate `Year` to `Human Development Index` in the world. 
+
+```{r, fig.width=7, fig.height=4, fig.align='center'}
+graph_3 <- data_3 %>%
+  ggplot(aes(x = Year, y= Human_Index))+
+  geom_line(color = "Grey") +
+  labs(title = "Index of Human Development in the World",
+       subtitle = "How Human Index rate changed our time?", 
+       x = "Year", y = "Human Development Index") +
+  theme_solarized_2(light = FALSE)+
+  theme(axis.title = element_text(),
+        text = element_text(colour = "#EEEEEE"),
+        title = element_text(colour = "#EEEEEE"),
+        panel.background = element_rect(fill = NA),
+        plot.background = element_rect(fill = "#111111"),
+        panel.grid.major = element_line(color = "gray15"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+  
+graph_3.animation = graph_3 +
+  transition_reveal(Year) +
+  view_follow(fixed_y = TRUE)
+animate(graph_3.animation, height = 500, width = 800, fps = 30, duration = 10, end_pause = 90, res = 100)
+anim_save("Human Index Graph.gif")
+```
+
+Yeah its true that As we move to modern era human index go up started from 0.1 and reaches around 0.5. 
+
+### Load Data for `Death due to battle`
+
+```{r}
+Death <- read.csv(file = here("Data", "battle-related-deaths.csv"))
+head(Death)
+```
+
+### Simplyfing data to find the useful insight.
+
+```{r}
+
+data_4 <- Death %>% 
+  select(Year,Battle.related.deaths, Entity) %>%
+  group_by(Year) %>% 
+  summarize(Death_Rate = mean(Battle.related.deaths, na.rm = TRUE))
+
+```
+
+We all know that in the past time world encounter many wars and many people died because of that, so this situation improved or not? Lets find that out.
+
+## 4. Plot that illustrate `Year` to  `Death` in the world because of battle.
+
+```{r, fig.width=7, fig.height=4, fig.align='center'}
+graph_4 <- data_4 %>%
+  ggplot(aes(x = Year, y= Death_Rate))+
+  geom_line(color = "Grey") +
+  labs(title = "Number of people died due to battle in the World",
+       subtitle = "How many people died because of battle?", 
+       x = "Year", y = "Number of death") +
+  theme_solarized_2(light = FALSE)+
+  theme(axis.title = element_text(),
+        text = element_text(colour = "#EEEEEE"),
+        title = element_text(colour = "#EEEEEE"),
+        panel.background = element_rect(fill = NA),
+        plot.background = element_rect(fill = "#111111"),
+        panel.grid.major = element_line(color = "gray15"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+graph_4.animation = graph_4 +
+  transition_reveal(Year) +
+  view_follow(fixed_y = TRUE)
+animate(graph_4.animation, height = 500, width = 800, fps = 30, duration = 10, end_pause = 90, res = 100)
+anim_save("Detha due to battle.gif")
+```
+
+As we can see as we moved towards the 20th century number people died because of battle is decreasing.
+
+### Load Data for `GDP`
+
+```{r}
+GDP_Data <- read.csv(file = here("Data", "gdp_total_yearly_growth.csv"))
+head(GDP_Data)
+```
+
+### Simplyfing data to find the useful insight.
+
+```{r}
+
+data_5 <- GDP_Data %>% 
+  select(Year,GDP) %>%
+  group_by(Year) %>% 
+  summarize(GDP_Rate = mean(GDP, na.rm = TRUE))
+
+```
+
+We have seen several factor that affect our decision, now lets look at the one of the most discussion factor GDP. which means total market value of all final goods and services produced within a country in a given period.
+
+## 5. Plot that illustrate `Year` to  `GDP` in the world.
+
+```{r, fig.width=7, fig.height=4, fig.align='center'}
+graph_5 <- data_5 %>%
+  ggplot(aes(x = Year, y= GDP_Rate))+
+  geom_line(color = "Grey") +
+  labs(title = "GDP index of the World",
+       subtitle = "How GDP varied over time?", 
+       x = "Year", y = "GDP") +
+  theme_solarized_2(light = FALSE)+
+  theme(axis.title = element_text(),
+        text = element_text(colour = "#EEEEEE"),
+        title = element_text(colour = "#EEEEEE"),
+        panel.background = element_rect(fill = NA),
+        plot.background = element_rect(fill = "#111111"),
+        panel.grid.major = element_line(color = "gray15"),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+graph_5.animation = graph_5 +
+  transition_reveal(Year) +
+  view_follow(fixed_y = TRUE)
+animate(graph_5.animation, height = 500, width = 800, fps = 30, duration = 10, end_pause = 90, res = 100)
+anim_save("Detha due to battle.gif")
+```
+Here, a increase with the little fluctuation can be noticed in overall GDP of the World.
+
+## Answer
+
+By observing above given visualization of 
+
+  1. **Life Expectancy**
+  2. **Child Mortality**
+  3. **Human Development Index**
+  4. **Death due to battle**
+  5. **GDP**
+
+we can come to a conclusion that the World has become a better place. The validity of the given statement can be proved as the Life Expectancy and GDP is acquired for the person's life, and both of these factors are steadily increasing, so it can be concluded that World has become a better place.
+
+
+
+
+
+
