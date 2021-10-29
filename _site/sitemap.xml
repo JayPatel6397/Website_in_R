@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://jaykumar-patel.netlify.app/blogs.html</loc>
-    <lastmod>2021-05-06T11:04:01+05:30</lastmod>
+    <lastmod>2021-10-29T16:59:53-04:00</lastmod>
   </url>
   <url>
     <loc>https://jaykumar-patel.netlify.app/</loc>
-    <lastmod>2021-05-07T08:58:14+05:30</lastmod>
+    <lastmod>2021-10-29T17:19:16-04:00</lastmod>
   </url>
   <url>
     <loc>https://jaykumar-patel.netlify.app/python.html</loc>
-    <lastmod>2021-05-06T11:25:38+05:30</lastmod>
+    <lastmod>2021-05-06T01:55:38-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://jaykumar-patel.netlify.app/posts/2021-05-09-has-the-world-become-a-better-place/</loc>
+    <lastmod>2021-10-29T17:17:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://jaykumar-patel.netlify.app/posts/2021-05-04-ames-housing-price-analysis/</loc>
-    <lastmod>2021-05-06T18:19:05+05:30</lastmod>
+    <lastmod>2021-05-06T08:49:05-04:00</lastmod>
   </url>
   <url>
     <loc>https://jaykumar-patel.netlify.app/python/2021-05-06-monthly-provisional-counts-of-deaths/</loc>
-    <lastmod>2021-05-06T18:05:42+05:30</lastmod>
+    <lastmod>2021-10-29T17:03:13-04:00</lastmod>
   </url>
 </urlset>

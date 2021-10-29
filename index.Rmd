@@ -6,9 +6,9 @@ output:
   postcards::trestles
 links:
     - label: GitHub
-      href: https://github.com/JayPatel6397/Website_in_R
+      url: "https://github.com/JayPatel6397/Website_in_R"
     - label: LinkedIn
-      href: https://www.linkedin.com/in/jaykumar-patel-9259521b5/
+      url: "https://www.linkedin.com/in/jaykumar-patel-9259521b5/"
 ---
  
 ## Bio

@@ -6,6 +6,7 @@ author:
   - name: Jaykumar A Patel
     url: {}
 date: 2021-05-09
+preview: https://media4.giphy.com/media/VoksFyW6IYFUI/giphy.gif?cid=ecf05e477jxs4cbeev401u7w6kq4dxtdbwvv94tf45qxaeee&rid=giphy.gif
 output:
   distill::distill_article:
     self_contained: false
@@ -44,7 +45,7 @@ library(ggthemes)
 ### Load Data for `Life Expectancy`
 
 ```{r}
-Life_exp <- read.csv(file = here("Data", "life-expectancy.csv"))
+Life_exp <- read.csv(file = here("_posts/2021-05-09-has-the-world-become-a-better-place/Data", "life-expectancy.csv"))
 head(Life_exp)
 ```
 
@@ -96,7 +97,7 @@ By looking at the graph we can see that as time passes life expectancy increased
 ### Load Data for `Child Mortality`
 
 ```{r}
-Child_Mor <- read.csv(file = here("Data", "child-mortality.csv"))
+Child_Mor <- read.csv(file = here("_posts/2021-05-09-has-the-world-become-a-better-place/Data", "child-mortality.csv"))
 head(Child_Mor)
 ```
 
@@ -147,7 +148,7 @@ We can see clearly from the graph that as we moved towards the 2000's Child Mort
 ### Load Data for `Human Development Index`
 
 ```{r}
-Human_Dev <- read.csv(file = here("Data", "human-development-index-escosura.csv"))
+Human_Dev <- read.csv(file = here("_posts/2021-05-09-has-the-world-become-a-better-place/Data", "human-development-index-escosura.csv"))
 head(Human_Dev)
 ```
 
@@ -196,7 +197,7 @@ Yeah its true that As we move to modern era human index go up started from 0.1 a
 ### Load Data for `Death due to battle`
 
 ```{r}
-Death <- read.csv(file = here("Data", "battle-related-deaths.csv"))
+Death <- read.csv(file = here("_posts/2021-05-09-has-the-world-become-a-better-place/Data", "battle-related-deaths.csv"))
 head(Death)
 ```
 
@@ -245,7 +246,7 @@ As we can see as we moved towards the 20th century number people died because of
 ### Load Data for `GDP`
 
 ```{r}
-GDP_Data <- read.csv(file = here("Data", "gdp_total_yearly_growth.csv"))
+GDP_Data <- read.csv(file = here("_posts/2021-05-09-has-the-world-become-a-better-place/Data", "gdp_total_yearly_growth.csv"))
 head(GDP_Data)
 ```
 
