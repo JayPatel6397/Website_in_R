@@ -86,37 +86,37 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Has the world become a better place?</title>
+  <title>Exploring hyper-parameter of Random forest</title>
 
-  <meta property="description" itemprop="description" content="This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question."/>
+  <meta property="description" itemprop="description" content="In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values."/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-05-09"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-05-09"/>
-  <meta name="article:author" content="Jaykumar A Patel"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-06-11"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-06-11"/>
+  <meta name="article:author" content="Jaykumar patel"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Has the world become a better place?"/>
+  <meta property="og:title" content="Exploring hyper-parameter of Random forest"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question."/>
+  <meta property="og:description" content="In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Has the world become a better place?"/>
-  <meta property="twitter:description" content="This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question."/>
+  <meta property="twitter:title" content="Exploring hyper-parameter of Random forest"/>
+  <meta property="twitter:description" content="In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Has the world become a better place?"]},{"type":"character","attributes":{},"value":["This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jaykumar A Patel"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-05-09"]},{"type":"character","attributes":{},"value":["https://media4.giphy.com/media/VoksFyW6IYFUI/giphy.gif?cid=ecf05e477jxs4cbeev401u7w6kq4dxtdbwvv94tf45qxaeee&rid=giphy.gif"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Exploring hyper-parameter of Random forest"]},{"type":"character","attributes":{},"value":["In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jaykumar patel"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2021-06-11"]},{"type":"character","attributes":{},"value":["forest.gif"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Child Mortality Graph.gif","Data/battle-related-deaths.csv","Data/child-mortality.csv","Data/gdp_total_yearly_growth.csv","Data/human-development-index-escosura.csv","Data/life-expectancy.csv","Detha due to battle.gif","has-the-world-become-a-better-place_files/anchor-4.2.2/anchor.min.js","has-the-world-become-a-better-place_files/bowser-1.9.3/bowser.min.js","has-the-world-become-a-better-place_files/distill-2.2.21/template.v2.js","has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-10-1.gif","has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-13-1.gif","has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-16-1.gif","has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-4-1.gif","has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-7-1.gif","has-the-world-become-a-better-place_files/header-attrs-2.9.5/header-attrs.js","has-the-world-become-a-better-place_files/jquery-1.11.3/jquery.min.js","has-the-world-become-a-better-place_files/popper-2.6.0/popper.min.js","has-the-world-become-a-better-place_files/tippy-6.2.7/tippy-bundle.umd.min.js","has-the-world-become-a-better-place_files/tippy-6.2.7/tippy-light-border.css","has-the-world-become-a-better-place_files/tippy-6.2.7/tippy.css","has-the-world-become-a-better-place_files/tippy-6.2.7/tippy.umd.min.js","has-the-world-become-a-better-place_files/webcomponents-2.0.0/webcomponents.js","Human Index Graph.gif","Life Expectancy Graph.gif"]}
+  {"type":"character","attributes":{},"value":["forest.gif","house_data.csv","random-forest_files/anchor-4.2.2/anchor.min.js","random-forest_files/bowser-1.9.3/bowser.min.js","random-forest_files/distill-2.2.21/template.v2.js","random-forest_files/figure-html5/unnamed-chunk-12-1.png","random-forest_files/figure-html5/unnamed-chunk-13-1.png","random-forest_files/figure-html5/unnamed-chunk-16-1.png","random-forest_files/figure-html5/unnamed-chunk-17-1.png","random-forest_files/header-attrs-2.9.5/header-attrs.js","random-forest_files/jquery-1.11.3/jquery.min.js","random-forest_files/popper-2.6.0/popper.min.js","random-forest_files/tippy-6.2.7/tippy-bundle.umd.min.js","random-forest_files/tippy-6.2.7/tippy-light-border.css","random-forest_files/tippy-6.2.7/tippy.css","random-forest_files/tippy-6.2.7/tippy.umd.min.js","random-forest_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1434,16 +1434,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="has-the-world-become-a-better-place_files/header-attrs-2.9.5/header-attrs.js"></script>
-  <script src="has-the-world-become-a-better-place_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="has-the-world-become-a-better-place_files/popper-2.6.0/popper.min.js"></script>
-  <link href="has-the-world-become-a-better-place_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="has-the-world-become-a-better-place_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="has-the-world-become-a-better-place_files/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="has-the-world-become-a-better-place_files/anchor-4.2.2/anchor.min.js"></script>
-  <script src="has-the-world-become-a-better-place_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="has-the-world-become-a-better-place_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="has-the-world-become-a-better-place_files/distill-2.2.21/template.v2.js"></script>
+  <script src="random-forest_files/header-attrs-2.9.5/header-attrs.js"></script>
+  <script src="random-forest_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="random-forest_files/popper-2.6.0/popper.min.js"></script>
+  <link href="random-forest_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="random-forest_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="random-forest_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="random-forest_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="random-forest_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="random-forest_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="random-forest_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Has the world become a better place?","description":"This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question.","authors":[{"author":"Jaykumar A Patel","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-05-09T00:00:00.000-04:00","citationText":"Patel, 2021"}
+{"title":"Exploring hyper-parameter of Random forest","description":"In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values.","authors":[{"author":"Jaykumar patel","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-06-11T00:00:00.000-04:00","citationText":"patel, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1465,183 +1465,313 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Has the world become a better place?</h1>
+<h1>Exploring hyper-parameter of Random forest</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question.</p></p>
+<p><p>In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values.</p></p>
 </div>
 
 <div class="d-byline">
-  Jaykumar A Patel true 
+  Jaykumar patel true 
   
-<br/>2021-05-09
+<br/>2021-06-11
 </div>
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
+<h1 id="creating-and-evaluating-a-simple-random-forest-model">Creating and evaluating a simple random forest model</h1>
 <ul>
-<li><a href="#problem-statement">Problem Statement</a>
+<li>In this blog post I have created random forest and showed how we can evaluate the model.</li>
+</ul>
+<h2 id="importing-python-library">Importing Python Library</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+</div>
+<h2 id="importing-r-library">Importing R library</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/reticulate'>reticulate</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jrnold/ggthemes'>ggthemes</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="read-the-data">Read the Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"_python/2021-11-02-random-forest"</span>, <span class='st'>"house_data.csv"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  bedrooms bathrooms m2_living floors m2_above m2_basement
+1        3      1.50       124    1.5      124           0
+2        5      2.50       339    2.0      313          26
+3        3      2.00       179    1.0      179           0
+4        3      2.25       186    1.0       93          93
+5        4      2.50       180    1.0      106          74
+6        2      1.00        82    1.0       82           0
+  m2_lot view quality yr_built renovated_last_5 city
+1    735    0       3     1961                0   37
+2    841    4       5     1927                1   36
+3   1110    0       4     1972                1   19
+4    746    0       4     1969                1    4
+5    975    0       4     1982                0   32
+6    593    0       3     1944                0   36
+  statezip   price
+1       63  313000
+2       59 2384000
+3       27  342000
+4        8  420000
+5       32  550000
+6       55  490000</code></pre>
+</div>
+<h2 id="check-null-value">Check Null Value</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>r.df.isnull().<span class="bu">sum</span>()</span></code></pre></div>
+<pre><code>bedrooms            0
+bathrooms           0
+m2_living           0
+floors              0
+m2_above            0
+m2_basement         0
+m2_lot              0
+view                0
+quality             0
+yr_built            0
+renovated_last_5    0
+city                0
+statezip            0
+price               0
+dtype: int64</code></pre>
+</div>
+<h2 id="seperate-response-variables-and-explanatory-variable">Seperate response variables and explanatory variable</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> r.df[<span class="st">&#39;price&#39;</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> r.df.drop(<span class="st">&#39;price&#39;</span>, axis <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+</div>
+<h2 id="train-and-test-split">Train and test split</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X_train, X_validation, y_train, y_validation <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Shape of X_train = &#39;</span>, X_train.shape)</span></code></pre></div>
+<pre><code>Shape of X_train =  (3680, 13)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Shape of X_validation = &#39;</span>, y_train.shape)</span></code></pre></div>
+<pre><code>Shape of X_validation =  (3680,)</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Shape of X_test = &#39;</span>, X_validation.shape)</span></code></pre></div>
+<pre><code>Shape of X_test =  (920, 13)</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Shape of y_validation = &#39;</span>,y_validation.shape)</span></code></pre></div>
+<pre><code>Shape of y_validation =  (920,)</code></pre>
+</div>
+<h2 id="creat-a-random-forest-model">Creat a random forest model</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>regressor1 <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>regressor1.fit(X_train, y_train)</span></code></pre></div>
+<pre><code>RandomForestRegressor(random_state=0)</code></pre>
+</div>
+<h2 id="model-evalution">Model evalution</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>train_pred <span class="op">=</span> regressor1.predict(X_train)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>valid_pred <span class="op">=</span> regressor1.predict(X_validation)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>train_mae <span class="op">=</span> mean_absolute_error(y_train, train_pred)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>valid_mae <span class="op">=</span> mean_absolute_error(y_validation, valid_pred)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Validation set mean absolute error is </span><span class="sc">{</span><span class="bu">round</span>(valid_mae,<span class="dv">2</span>)<span class="sc">}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<pre><code>Validation set mean absolute error is 142365.36</code></pre>
+</div>
+<h1 id="exploring-the-n_estimators-hyper-parameter">Exploring the n_estimators hyper-parameter</h1>
 <ul>
-<li><a href="#load-data-for-life-expectancy">Load Data for <code>Life Expectancy</code></a></li>
-<li><a href="#simplyfing-data-to-find-the-useful-insight.">Simplyfing data to find the useful insight.</a></li>
-<li><a href="#plot-that-illustrate-year-to-life-expectancy-in-the-world.">1. Plot that illustrate <code>Year</code> to <code>Life Expectancy</code> in the world.</a>
+<li><p>In this part</p>
 <ul>
-<li><a href="#load-data-for-child-mortality">Load Data for <code>Child Mortality</code></a></li>
-<li><a href="#simplyfing-data-to-find-the-useful-insight.-1">Simplyfing data to find the useful insight.</a></li>
-</ul></li>
-<li><a href="#plot-that-illustrate-year-to-child-mortality-in-the-world.">2. Plot that illustrate <code>Year</code> to <code>Child Mortality</code> in the world.</a>
-<ul>
-<li><a href="#load-data-for-human-development-index">Load Data for <code>Human Development Index</code></a></li>
-<li><a href="#simplyfing-data-to-find-the-useful-insight.-2">Simplyfing data to find the useful insight.</a></li>
-</ul></li>
-<li><a href="#plot-that-illustrate-year-to-human-development-index-in-the-world.">3. Plot that illustrate <code>Year</code> to <code>Human Development Index</code> in the world.</a>
-<ul>
-<li><a href="#load-data-for-death-due-to-battle">Load Data for <code>Death due to battle</code></a></li>
-<li><a href="#simplyfing-data-to-find-the-useful-insight.-3">Simplyfing data to find the useful insight.</a></li>
-</ul></li>
-<li><a href="#plot-that-illustrate-year-to-death-in-the-world-because-of-battle.">4. Plot that illustrate <code>Year</code> to <code>Death</code> in the world because of battle.</a>
-<ul>
-<li><a href="#load-data-for-gdp">Load Data for <code>GDP</code></a></li>
-<li><a href="#simplyfing-data-to-find-the-useful-insight.-4">Simplyfing data to find the useful insight.</a></li>
-</ul></li>
-<li><a href="#plot-that-illustrate-year-to-gdp-in-the-world.">5. Plot that illustrate <code>Year</code> to <code>GDP</code> in the world.</a></li>
-<li><a href="#answer">Answer</a></li>
+<li>I have used for loop to create a random forest model for each value of n_estimators from 1 to 30 to check for which estimator we are getting best performance.</li>
 </ul></li>
 </ul>
-</nav>
+<h2 id="model-training">Model training</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>train_mae2 <span class="op">=</span> [] <span class="co">#stores MAE for training set for each n-estimators</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>valid_mae2 <span class="op">=</span> [] <span class="co">#stores MAE for validation set for each n-estimators</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nesti <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">31</span>):</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    regressor2 <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span>nesti, random_state<span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    regressor2.fit(X_train, y_train)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    train_pred2 <span class="op">=</span> regressor2.predict(X_train)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    valid_pred2 <span class="op">=</span> regressor2.predict(X_validation)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    train_mae2.append(mean_absolute_error(y_train, train_pred2))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    valid_mae2.append(mean_absolute_error(y_validation, valid_pred2))</span></code></pre></div>
+<pre><code>RandomForestRegressor(n_estimators=1, random_state=0)
+RandomForestRegressor(n_estimators=2, random_state=0)
+RandomForestRegressor(n_estimators=3, random_state=0)
+RandomForestRegressor(n_estimators=4, random_state=0)
+RandomForestRegressor(n_estimators=5, random_state=0)
+RandomForestRegressor(n_estimators=6, random_state=0)
+RandomForestRegressor(n_estimators=7, random_state=0)
+RandomForestRegressor(n_estimators=8, random_state=0)
+RandomForestRegressor(n_estimators=9, random_state=0)
+RandomForestRegressor(n_estimators=10, random_state=0)
+RandomForestRegressor(n_estimators=11, random_state=0)
+RandomForestRegressor(n_estimators=12, random_state=0)
+RandomForestRegressor(n_estimators=13, random_state=0)
+RandomForestRegressor(n_estimators=14, random_state=0)
+RandomForestRegressor(n_estimators=15, random_state=0)
+RandomForestRegressor(n_estimators=16, random_state=0)
+RandomForestRegressor(n_estimators=17, random_state=0)
+RandomForestRegressor(n_estimators=18, random_state=0)
+RandomForestRegressor(n_estimators=19, random_state=0)
+RandomForestRegressor(n_estimators=20, random_state=0)
+RandomForestRegressor(n_estimators=21, random_state=0)
+RandomForestRegressor(n_estimators=22, random_state=0)
+RandomForestRegressor(n_estimators=23, random_state=0)
+RandomForestRegressor(n_estimators=24, random_state=0)
+RandomForestRegressor(n_estimators=25, random_state=0)
+RandomForestRegressor(n_estimators=26, random_state=0)
+RandomForestRegressor(n_estimators=27, random_state=0)
+RandomForestRegressor(n_estimators=28, random_state=0)
+RandomForestRegressor(n_estimators=29, random_state=0)
+RandomForestRegressor(n_estimators=30, random_state=0)</code></pre>
 </div>
-<h1 id="problem-statement">Problem Statement</h1>
+<h2 id="plotting-model-performance-graph">Plotting Model Performance graph</h2>
+<h2 id="performance-on-training-set">Performance on training set</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ToDataframe</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>new_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>, byrow<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Converting python list to the dataframe</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>new_df</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"error"</span>
+<span class='va'>new_df</span><span class='op'>$</span><span class='va'>enu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq.int</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>new_df</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># adding new column with the number of n_estimators </span>
+<span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>new_df</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>train_mae</span> <span class='op'>&lt;-</span> <span class='fu'>ToDataframe</span><span class='op'>(</span><span class='va'>py</span><span class='op'>$</span><span class='va'>train_mae2</span><span class='op'>)</span>
+<span class='va'>train_mae</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>enu</span>, y<span class='op'>=</span><span class='va'>error</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of MAE over n_estimators for training set"</span>,
+         x <span class='op'>=</span> <span class='st'>"n_estimators"</span>,
+         y <span class='op'>=</span> <span class='st'>"mean absolute error"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>themes</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="random-forest_files/figure-html5/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<h2 id="performance-on-validation-set">Performance on validation set</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>valid_mae</span> <span class='op'>&lt;-</span> <span class='fu'>ToDataframe</span><span class='op'>(</span><span class='va'>py</span><span class='op'>$</span><span class='va'>valid_mae2</span><span class='op'>)</span>
+
+<span class='va'>valid_mae</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>enu</span>, y<span class='op'>=</span><span class='va'>error</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of MAE over n_estimators for validation set"</span>,
+         x <span class='op'>=</span> <span class='st'>"n_estimators"</span>,
+         y <span class='op'>=</span> <span class='st'>"mean absolute error"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>themes</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="random-forest_files/figure-html5/unnamed-chunk-13-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<h2 id="best-model-performnace">Best model performnace</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>minimum2 <span class="op">=</span> valid_mae2.index(<span class="bu">min</span>(valid_mae2))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Minimum Mean Absolute error is </span><span class="sc">{</span><span class="bu">round</span>(<span class="bu">min</span>(valid_mae2),<span class="dv">2</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">Minimum error is at </span><span class="sc">{</span>minimum2 <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> n_estimators &#39;</span>)</span></code></pre></div>
+<pre><code>Minimum Mean Absolute error is 138483.76
+Minimum error is at 4 n_estimators </code></pre>
+</div>
+<h2 id="overall-observation">Overall observation</h2>
+<ol type="1">
+<li><p>Which value of n_estimators gives the best results for the validation set?</p>
 <ul>
-<li>As a modern ear we think that</li>
+<li>4 n_estimators gives the best results</li>
+</ul></li>
+<li><p>How I decided that this value for n_estimators gave the best results?</p>
+<ul>
+<li><p>I created model for n_estimators from 1 to 30 and stored value in the list valid_mae2.</p></li>
+<li><p>Then I compare all the results and looked for the minimum error that is how I decided the value of the n_estimators.</p></li>
+</ul></li>
+</ol>
+<h1 id="exploring-the-max_features-hyper-parameter">Exploring the max_features hyper-parameter</h1>
+<ul>
+<li><p>In this part</p>
+<ul>
+<li>I have used for loop to create a random forest model for each value of max_features from 1 to number of features present in the data.</li>
+<li>I have used n-estimatro 4 as we found that it gives us the best performance.</li>
+</ul></li>
 </ul>
-<p>There are many things we need to look after before stating answer. For Example.</p>
-<ol type="1">
-<li><strong>Life Expectancy</strong></li>
-<li><strong>Child Mortality</strong></li>
-<li><strong>Human Development Index</strong></li>
-<li><strong>Death due to battle</strong></li>
-<li><strong>GDP</strong></li>
-</ol>
-<h3 id="load-data-for-life-expectancy">Load Data for <code>Life Expectancy</code></h3>
+<h2 id="model-training-1">Model training</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>       Entity Year Life.expectancy
-1 Afghanistan 1950          27.638
-2 Afghanistan 1951          27.878
-3 Afghanistan 1952          28.361
-4 Afghanistan 1953          28.852
-5 Afghanistan 1954          29.350
-6 Afghanistan 1955          29.854</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>train_mae3 <span class="op">=</span> [] <span class="co">#stores MAE for training set for each n-estimators</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>valid_mae3 <span class="op">=</span> [] <span class="co">#stores MAE for training set for each n-estimators</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> max_fea <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">14</span>):</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    regressor3 <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">4</span>, max_features<span class="op">=</span>max_fea, random_state<span class="op">=</span> <span class="dv">0</span>) </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    regressor3.fit(X_train, y_train)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    train_pred3 <span class="op">=</span> regressor3.predict(X_train)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    valid_pred3 <span class="op">=</span> regressor3.predict(X_validation)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    train_mae3.append(mean_absolute_error(y_train, train_pred3))</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    valid_mae3.append(mean_absolute_error(y_validation, valid_pred3))</span></code></pre></div>
+<pre><code>RandomForestRegressor(max_features=1, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=2, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=3, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=4, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=5, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=6, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=7, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=8, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=9, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=10, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=11, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=12, n_estimators=4, random_state=0)
+RandomForestRegressor(max_features=13, n_estimators=4, random_state=0)</code></pre>
 </div>
-<h3 id="simplyfing-data-to-find-the-useful-insight.">Simplyfing data to find the useful insight.</h3>
+<h2 id="plotting-model-performance-graph-1">Plotting Model Performance graph</h2>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>train_mae</span> <span class='op'>&lt;-</span> <span class='fu'>ToDataframe</span><span class='op'>(</span><span class='va'>py</span><span class='op'>$</span><span class='va'>train_mae3</span><span class='op'>)</span>
+<span class='va'>train_mae</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>enu</span>, y<span class='op'>=</span><span class='va'>error</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of MAE over Max_features for training set"</span>,
+         x <span class='op'>=</span> <span class='st'>"# of features"</span>,
+         y <span class='op'>=</span> <span class='st'>"mean absolute error"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>themes</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
-<p>Lets take a look at how life expectancy changed in the passed year. Is it improved or not?</p>
-<h2 id="plot-that-illustrate-year-to-life-expectancy-in-the-world.">1. Plot that illustrate <code>Year</code> to <code>Life Expectancy</code> in the world.</h2>
+<p><img src="random-forest_files/figure-html5/unnamed-chunk-16-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-4-1.gif" style="display: block; margin: auto;" /></p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>valid_mae</span> <span class='op'>&lt;-</span> <span class='fu'>ToDataframe</span><span class='op'>(</span><span class='va'>py</span><span class='op'>$</span><span class='va'>valid_mae3</span><span class='op'>)</span>
+<span class='va'>valid_mae</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>enu</span>, y<span class='op'>=</span><span class='va'>error</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of MAE over Max_features for validation set"</span>,
+         x <span class='op'>=</span> <span class='st'>"# of features"</span>,
+         y <span class='op'>=</span> <span class='st'>"mean absolute error"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>themes</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
-<p>By looking at the graph we can see that as time passes life expectancy increased that means we can say that world is moving towards a long and healthy life.</p>
-<h3 id="load-data-for-child-mortality">Load Data for <code>Child Mortality</code></h3>
+<p><img src="random-forest_files/figure-html5/unnamed-chunk-17-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<p>## Best model performance</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>       Entity Code Year Child.mortality
-1 Afghanistan  AFG 1957         381.194
-2 Afghanistan  AFG 1958         375.190
-3 Afghanistan  AFG 1959         369.361
-4 Afghanistan  AFG 1960         363.700
-5 Afghanistan  AFG 1961         357.500
-6 Afghanistan  AFG 1962         351.500</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>minimum3 <span class="op">=</span> valid_mae3.index(<span class="bu">min</span>(valid_mae3))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Minimum Mean Absolute error is </span><span class="sc">{</span><span class="bu">round</span>(<span class="bu">min</span>(valid_mae3),<span class="dv">2</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">Minimum error is at </span><span class="sc">{</span>minimum3 <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> max_features &#39;</span>)</span></code></pre></div>
+<pre><code>Minimum Mean Absolute error is 138483.76
+Minimum error is at 13 max_features </code></pre>
 </div>
-<h3 id="simplyfing-data-to-find-the-useful-insight.-1">Simplyfing data to find the useful insight.</h3>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>As we know a long time ago children died at their early age, so now lets see what change has occurred since then.</p>
-<h2 id="plot-that-illustrate-year-to-child-mortality-in-the-world.">2. Plot that illustrate <code>Year</code> to <code>Child Mortality</code> in the world.</h2>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-7-1.gif" style="display: block; margin: auto;" /></p>
-</div>
-<p>We can see clearly from the graph that as we moved towards the 2000’s Child Mortality decreases that means child lives longer than before.</p>
-<h3 id="load-data-for-human-development-index">Load Data for <code>Human Development Index</code></h3>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>       Entity Code Year
-1 Afghanistan  AFG 1950
-2 Afghanistan  AFG 1955
-3 Afghanistan  AFG 1960
-4 Afghanistan  AFG 1965
-5 Afghanistan  AFG 1970
-6 Afghanistan  AFG 1975
-  Historical.Index.of.Human.Development..Prados.de.la.Escosura.
-1                                                          0.04
-2                                                          0.05
-3                                                          0.06
-4                                                          0.07
-5                                                          0.09
-6                                                          0.09</code></pre>
-</div>
-<h3 id="simplyfing-data-to-find-the-useful-insight.-2">Simplyfing data to find the useful insight.</h3>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>We are living in the modern era so does it really mean that human development index rises? To answer that lets see following graph.</p>
-<h2 id="plot-that-illustrate-year-to-human-development-index-in-the-world.">3. Plot that illustrate <code>Year</code> to <code>Human Development Index</code> in the world.</h2>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-10-1.gif" style="display: block; margin: auto;" /></p>
-</div>
-<p>Yeah its true that As we move to modern era human index go up started from 0.1 and reaches around 0.5.</p>
-<h3 id="load-data-for-death-due-to-battle">Load Data for <code>Death due to battle</code></h3>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>                      Entity Year Battle.related.deaths
-1 Africa (inc. North Africa) 1946                     0
-2 Africa (inc. North Africa) 1947                     0
-3 Africa (inc. North Africa) 1948                     0
-4 Africa (inc. North Africa) 1949                     0
-5 Africa (inc. North Africa) 1950                     0
-6 Africa (inc. North Africa) 1951                     0</code></pre>
-</div>
-<h3 id="simplyfing-data-to-find-the-useful-insight.-3">Simplyfing data to find the useful insight.</h3>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>We all know that in the past time world encounter many wars and many people died because of that, so this situation improved or not? Lets find that out.</p>
-<h2 id="plot-that-illustrate-year-to-death-in-the-world-because-of-battle.">4. Plot that illustrate <code>Year</code> to <code>Death</code> in the world because of battle.</h2>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-13-1.gif" style="display: block; margin: auto;" /></p>
-</div>
-<p>As we can see as we moved towards the 20th century number people died because of battle is decreasing.</p>
-<h3 id="load-data-for-gdp">Load Data for <code>GDP</code></h3>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>      country Year GDP
-1 Afghanistan 1801   0
-2 Afghanistan 1802   0
-3 Afghanistan 1803   0
-4 Afghanistan 1804   0
-5 Afghanistan 1805   0
-6 Afghanistan 1806   0</code></pre>
-</div>
-<h3 id="simplyfing-data-to-find-the-useful-insight.-4">Simplyfing data to find the useful insight.</h3>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>We have seen several factor that affect our decision, now lets look at the one of the most discussion factor GDP. which means total market value of all final goods and services produced within a country in a given period.</p>
-<h2 id="plot-that-illustrate-year-to-gdp-in-the-world.">5. Plot that illustrate <code>Year</code> to <code>GDP</code> in the world.</h2>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="has-the-world-become-a-better-place_files/figure-html5/unnamed-chunk-16-1.gif" style="display: block; margin: auto;" /></p>
-</div>
-<p>Here, a increase with the little fluctuation can be noticed in overall GDP of the World.</p>
-<h2 id="answer">Answer</h2>
-<p>By observing above given visualization of</p>
-<ol type="1">
-<li><strong>Life Expectancy</strong></li>
-<li><strong>Child Mortality</strong></li>
-<li><strong>Human Development Index</strong></li>
-<li><strong>Death due to battle</strong></li>
-<li><strong>GDP</strong></li>
-</ol>
-<p>we can come to a conclusion that the World has become a better place. The validity of the given statement can be proved as the Life Expectancy and GDP is acquired for the person’s life, and both of these factors are steadily increasing, so it can be concluded that World has become a better place.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

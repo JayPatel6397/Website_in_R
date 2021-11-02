@@ -1,0 +1,266 @@
+---
+title: "Exploring hyper-parameter of Random forest"
+description: |
+  In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values. 
+author:
+  - name: Jaykumar patel
+    url: {}
+date: 2021-06-11
+preview: forest.gif
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set( R.options = list(width = 60))
+
+```
+
+# Creating and evaluating a simple random forest model
+
+-   In this blog post I have created random forest and showed how we can evaluate the model.
+
+## Importing Python Library
+
+```{python}
+import pandas as pd
+
+```
+
+## Importing R library
+
+```{r warning = FALSE, message = FALSE}
+library(reticulate)
+library(tidyverse)
+library(here)
+library(ggthemes)
+```
+
+## Read the Data
+
+```{r}
+df <- read.csv(file = here("_python/2021-11-02-random-forest", "house_data.csv"))
+head(df)
+```
+
+## Check Null Value
+
+```{python}
+r.df.isnull().sum()
+```
+
+## Seperate response variables and explanatory variable
+
+```{python}
+y = r.df['price']
+X = r.df.drop('price', axis = 1)
+```
+
+## Train and test split
+
+```{python warning = FALSE, message = FALSE}
+from sklearn.model_selection import train_test_split
+X_train, X_validation, y_train, y_validation = train_test_split(X, y, test_size=0.2, random_state=0)
+ 
+print('Shape of X_train = ', X_train.shape)
+print('Shape of X_validation = ', y_train.shape)
+print('Shape of X_test = ', X_validation.shape)
+print('Shape of y_validation = ',y_validation.shape)
+```
+
+## Creat a random forest model
+
+```{python warning = FALSE, message = FALSE}
+from sklearn.ensemble import RandomForestRegressor
+ 
+regressor1 = RandomForestRegressor(random_state= 0)
+regressor1.fit(X_train, y_train)
+```
+
+## Model evalution
+
+```{python warning = FALSE, message = FALSE}
+train_pred = regressor1.predict(X_train)
+valid_pred = regressor1.predict(X_validation)
+
+from sklearn.metrics import mean_absolute_error
+
+train_mae = mean_absolute_error(y_train, train_pred)
+valid_mae = mean_absolute_error(y_validation, valid_pred)
+                                
+print(f'Validation set mean absolute error is {round(valid_mae,2)}')
+```
+
+# Exploring the n_estimators hyper-parameter
+
+-   In this part
+
+    -   I have used for loop to create a random forest model for each value of n_estimators from 1 to 30 to check for which estimator we are getting best performance.
+
+## Model training
+
+```{python, warning = FALSE, message = FALSE}
+train_mae2 = [] #stores MAE for training set for each n-estimators
+valid_mae2 = [] #stores MAE for validation set for each n-estimators
+
+for nesti in range(1,31):
+    regressor2 = RandomForestRegressor(n_estimators=nesti, random_state= 0)
+    regressor2.fit(X_train, y_train)
+    train_pred2 = regressor2.predict(X_train)
+    valid_pred2 = regressor2.predict(X_validation)
+    train_mae2.append(mean_absolute_error(y_train, train_pred2))
+    valid_mae2.append(mean_absolute_error(y_validation, valid_pred2))
+```
+
+## Plotting Model Performance graph
+
+```{r, include=FALSE}
+library(gridExtra)
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center")
+
+themes <-  function()
+  {
+  theme(
+        plot.title = element_text(color = "#651a34", size = 20, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5, color = "#845EC2",  face = "italic" ),
+        axis.title.x = element_text(color = "#651a34", face = "bold",margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(color = "#651a34", face = "bold", margin = margin(t = 0, r = 10, b = 0, l = 0)),
+        text = element_text(colour = "#BCF7E4"),
+        legend.background = element_rect(fill="#B0E0E0",size=0.5, linetype="solid"),
+        legend.title = element_text(colour="black", size=10, face="bold"),
+        legend.text = element_text(color = "#545479"),
+        legend.position = "none",
+        legend.direction = "horizontal" 
+        )
+}
+
+```
+
+## Performance on training set
+
+```{r}
+ToDataframe <- function(data) {
+  new_df <- data.frame(matrix(unlist(data), nrow=length(data), byrow=TRUE)) # Converting python list to the dataframe
+  names(new_df)[1] <- "error"
+new_df$enu <- seq.int(nrow(new_df)) # adding new column with the number of n_estimators 
+return(new_df)
+}
+```
+
+
+```{r}
+train_mae <- ToDataframe(py$train_mae2)
+train_mae %>%
+  ggplot(aes(x=enu, y=error))+
+  geom_line() +
+  labs(title = "Distribution of MAE over n_estimators for training set",
+         x = "n_estimators",
+         y = "mean absolute error") +
+    theme_minimal()+
+  themes()
+
+```
+
+## Performance on validation set
+
+```{r}
+
+valid_mae <- ToDataframe(py$valid_mae2)
+
+valid_mae %>%
+  ggplot(aes(x=enu, y=error))+
+  geom_line() +
+  labs(title = "Distribution of MAE over n_estimators for validation set",
+         x = "n_estimators",
+         y = "mean absolute error") +
+    theme_minimal()+
+  themes()
+```
+
+## Best model performnace
+
+```{python, warning = FALSE, message = FALSE}
+minimum2 = valid_mae2.index(min(valid_mae2))
+print(f'Minimum Mean Absolute error is {round(min(valid_mae2),2)}\nMinimum error is at {minimum2 + 1} n_estimators ')
+
+```
+
+
+
+## Overall observation
+
+1.  Which value of n_estimators gives the best results for the validation set?
+
+    -   4 n_estimators gives the best results
+
+2.  How I decided that this value for n_estimators gave the best results?
+
+    -   I created model for n_estimators from 1 to 30 and stored value in the list valid_mae2.
+
+    -   Then I compare all the results and looked for the minimum error that is how I decided the value of the n_estimators.
+
+# Exploring the max_features hyper-parameter
+
+-   In this part
+
+    -   I have used for loop to create a random forest model for each value of max_features from 1 to number of features present in the data.
+    -   I have used n-estimatro 4 as we found that it gives us the best performance.
+    
+    
+## Model training
+
+```{python warning = FALSE, message = FALSE}
+
+train_mae3 = [] #stores MAE for training set for each n-estimators
+valid_mae3 = [] #stores MAE for training set for each n-estimators
+
+for max_fea in range(1,14):
+    regressor3 = RandomForestRegressor(n_estimators=4, max_features=max_fea, random_state= 0) 
+    regressor3.fit(X_train, y_train)
+    train_pred3 = regressor3.predict(X_train)
+    valid_pred3 = regressor3.predict(X_validation)
+    train_mae3.append(mean_absolute_error(y_train, train_pred3))
+    valid_mae3.append(mean_absolute_error(y_validation, valid_pred3))
+```
+
+## Plotting Model Performance graph
+
+```{r}
+train_mae <- ToDataframe(py$train_mae3)
+train_mae %>%
+  ggplot(aes(x=enu, y=error))+
+  geom_line() +
+  labs(title = "Distribution of MAE over Max_features for training set",
+         x = "# of features",
+         y = "mean absolute error") +
+    theme_minimal()+
+  themes()
+
+```
+   
+```{r}
+valid_mae <- ToDataframe(py$valid_mae3)
+valid_mae %>%
+  ggplot(aes(x=enu, y=error))+
+  geom_line() +
+  labs(title = "Distribution of MAE over Max_features for validation set",
+         x = "# of features",
+         y = "mean absolute error") +
+    theme_minimal()+
+  themes()
+```
+  
+ ## Best model performance
+
+```{python, warning = FALSE, message = FALSE}
+minimum3 = valid_mae3.index(min(valid_mae3))
+print(f'Minimum Mean Absolute error is {round(min(valid_mae3),2)}\nMinimum error is at {minimum3 + 1} max_features ')
+```   
+    
+    
+    
+    
+    
+    
+    

@@ -7,7 +7,16 @@
     <description>My work in R.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Exploring hyper-parameter of Random forest</title>
+      <dc:creator>Jaykumar patel</dc:creator>
+      <link>https://jaykumar-patel.netlify.app/python/2021-11-02-random-forest</link>
+      <description>In this blog post I have explore the n_estimators and Max_features hpyer_parameter to find which value are the best for the model training and showed how can we select best values.</description>
+      <guid>https://jaykumar-patel.netlify.app/python/2021-11-02-random-forest</guid>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://jaykumar-patel.netlify.app/python/2021-11-02-random-forest/forest.gif" medium="image" type="image/gif"/>
+    </item>
     <item>
       <title>Monthly Provisional Counts Of Deaths</title>
       <dc:creator>Jaykumar patel</dc:creator>

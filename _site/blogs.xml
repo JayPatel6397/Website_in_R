@@ -7,7 +7,16 @@
     <description>My work in R.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Has the world become a better place?</title>
+      <dc:creator>Jaykumar A Patel</dc:creator>
+      <link>https://jaykumar-patel.netlify.app/posts/2021-05-09-has-the-world-become-a-better-place</link>
+      <description>This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question.</description>
+      <guid>https://jaykumar-patel.netlify.app/posts/2021-05-09-has-the-world-become-a-better-place</guid>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://media4.giphy.com/media/VoksFyW6IYFUI/giphy.gif?cid=ecf05e477jxs4cbeev401u7w6kq4dxtdbwvv94tf45qxaeee&amp;rid=giphy.gif" medium="image" type="image/gif"/>
+    </item>
     <item>
       <title>Ames Housing Price Analysis</title>
       <dc:creator>Jaykumar A Patel</dc:creator>

@@ -1,7 +1,7 @@
 ---
 title: "Has the world become a better place?"
 description: |
-  This blog post gives the answer of the most 
+  This blog post gives the answer of the most complicated question. I have explore some of the factor which helped me to answer this question. 
 author:
   - name: Jaykumar A Patel
     url: {}

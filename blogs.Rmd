@@ -1,8 +1,5 @@
 ---
 title: "R Blog Posts"
-listing:
-  posts:
-    - 2021-05-04-ames-housing-price-analysis
-    - 2021-05-09-has-the-world-become-a-better-place
+listing: posts 
 ---
 

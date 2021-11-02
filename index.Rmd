@@ -1,6 +1,6 @@
 ---
 title: "Jaykumar Patel"
-image: "my.jpg"
+image: "circle-cropped.png"
 site: distill::distill_website
 output:
   postcards::trestles
@@ -37,3 +37,10 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html
 
 ```
+
+```{r, include=FALSE}
+#library(distill)
+#create_post(title = "Random forest",
+#            collection = "python")
+```
+
